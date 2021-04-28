@@ -1,5 +1,5 @@
 import React from "react";
-import "./homepage.component.scss";
+import "./homepage.styles.scss";
 
 
 import { Grid } from "@material-ui/core";
@@ -15,26 +15,26 @@ class Homepage extends React.Component {
 
     render() {
         return (
-            <div class="curtain">
-                <div class="curtain-wrapper">
-                    <div class="curtain-panel curtain-panel-left">
+            <div className="curtain">
+                <div className="curtain-wrapper">
+                    <div className="curtain-panel curtain-panel-left">
                     </div>
-                    <div class="curtain-content">
-                        <div class="title">
+                    <div className="curtain-content">
+                        <div className="title">
                             <h1>Welcome</h1>
                             <h2>to</h2>
                             <h1>The Shoppies</h1>
                         </div>
 
-                        <div class="nominate-button">
-                            <Button variant="contained" color="primary">
+                        <div className="nominate-button">
+                            <Button variant="contained" color="primary" disableElevation>
                                 Nominate Movies
                             </Button>
                         </div>
 
                     </div>
 
-                    <div class="curtain-panel curtain-panel-right">
+                    <div className="curtain-panel curtain-panel-right">
                     </div>
                 </div>
             </div>

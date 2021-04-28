@@ -47,16 +47,16 @@ html {
   }
 
 .curtain-panel-left {
-  animation: 1s ease-out 0s 1 pull-left-curtain forwards;
+  animation: 1.3s ease-out 0s 1 pull-left-curtain forwards;
 }
 
 .curtain-panel-right {
-    animation: 1s ease-out 0s 1 pull-right-curtain forwards;
+    animation: 1.3s ease-out 0s 1 pull-right-curtain forwards;
 }
 
 .curtain-content {
-  background-color: rgb(41, 45, 51);
-  color: aliceblue;
+  background-color: #151E2A;
+  color: rgb(255, 255, 255);
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -71,10 +71,11 @@ html {
 
 .title {
     margin-top: -5%;
-    font-size: xx-large;
+    font-size: 30px;
     text-align: center;
-    font-family: cursive;
-    text-shadow: 2px 2px 10px rgb(215, 223, 145), 0 0 25px rgb(110, 180, 189), 0 0 5px  rgb(215, 224, 224);
+    font-weight: 100;
+    font-family: Oranienbaum;
+    text-shadow: 2px 2px 5px rgb(145, 218, 223), 0 0 25px rgb(110, 180, 189), 0 0 5px  rgb(215, 224, 224);
 
     h2 {
         margin-top: 5px;
@@ -89,5 +90,15 @@ html {
 
 .nominate-button {
     margin-top: 5%;
+
+    Button {
+        font-family: Oranienbaum;
+        font-size: 20px;
+        width: 300px;
+    }
+    Button:hover {
+        background-color: #333f47;
+    }
+    
 
 }
