@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Homepage from "./components/hompage/homepage.component";
 import NavBar from "./components/navbar/navbar.component"
+import NominateMovies from "./components/nominate-movies/nominate-movies.component";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/" component={Homepage} />
+          <Route exact path="/nominate-movies" component={NominateMovies} />
         </Switch>
       </BrowserRouter>
     </div>

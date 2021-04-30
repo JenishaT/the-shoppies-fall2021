@@ -1,8 +1,6 @@
 import React from "react";
 import "./homepage.styles.scss";
 
-
-import { Grid } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 
 
@@ -27,7 +25,7 @@ class Homepage extends React.Component {
                         </div>
 
                         <div className="nominate-button">
-                            <Button variant="contained" color="primary" disableElevation>
+                            <Button variant="contained" color="primary" disableElevation component="a" href={'/nominate-movies'}>
                                 Nominate Movies
                             </Button>
                         </div>
