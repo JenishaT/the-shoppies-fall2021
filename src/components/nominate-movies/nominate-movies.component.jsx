@@ -3,6 +3,7 @@ import "./nominate-movies.styles.scss";
 
 import { Grid } from "@material-ui/core";
 import SearchBar from "../searchbar/searchbar.component";
+import SearchResults from "../search-results/search-results.component";
 
 class NominateMovies extends React.Component {
     render() {
@@ -11,7 +12,8 @@ class NominateMovies extends React.Component {
                 container
                 direction="column"
                 justify="center"
-                alignItems="stretch">
+                alignItems="stretch"
+                spacing={1}>
                 <Grid item xs={12}>
                     <h1>Nominate Movies</h1>
                 </Grid>
@@ -19,16 +21,16 @@ class NominateMovies extends React.Component {
                     <SearchBar />
                 </Grid>
 
-                <Grid item xs={11}>
-                    <Grid 
-                    container
-                    direction="row"
-                    justify="center"
+                <Grid item xs={12}>
+                    <Grid
+                        container
+                        direction="row"
+                        justify="center"
                     >
-                        <Grid container xs={8}>
-                            <p>Search results</p>
+                        <Grid container xs={7}>
+                            <SearchResults />
                         </Grid>
-                        <Grid container xs={4}>
+                        <Grid container xs={5}>
                             <p>My Nominations list</p>
                         </Grid>
 

@@ -1,0 +1,43 @@
+#result-container {
+  h2 {
+    font-family: Oranienbaum;
+    color: white;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+  }
+
+  margin-left: 7%;
+  margin-top: 2%;
+  width: 90%;
+  overflow-y: hidden;
+  background-color: #2a3947;
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #2a3947;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #73828bad;
+    border-radius: 10px;
+    border: 3px solid #2a3947; 
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #73828bc4;
+  }
+}
+
+#result-card-container {
+  padding-left: 5%;
+  padding-right: 3%;
+  height: 45vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #2a3947;
+}

@@ -1,9 +1,7 @@
 import React from 'react';
 import "./navbar.styles.scss";
 import MenuIcon from "@material-ui/icons/Menu";
-import {
-    AppBar, Grid, Tabs, Tab, Hidden, Button, Menu, IconButton, MenuItem
-} from "@material-ui/core";
+import { AppBar, Grid, Tabs, Tab, Hidden, Menu, IconButton, MenuItem } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 
@@ -30,7 +28,6 @@ class NavBar extends React.Component {
 
     handleMenu = (event) => {
         this.setState({ anchorEl: event.target });
-        console.log(this.state);
     };
 
     handleClose = () => {
@@ -74,14 +71,6 @@ class NavBar extends React.Component {
                             </IconButton>
                             <Menu
                                 anchorEl={this.state.anchorEl}
-                                anchorOrigin={{
-                                    vertical: "top",
-                                    horizontal: "right"
-                                }}
-                                transformOrigin={{
-                                    vertical: "top",
-                                    horizontal: "right"
-                                }}
                                 open={!!this.state.anchorEl}
                                 onClose={this.handleClose}
                             >

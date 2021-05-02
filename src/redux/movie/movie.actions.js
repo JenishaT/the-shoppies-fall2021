@@ -7,10 +7,10 @@ export const searchMovies = (query) => async (dispatch) => {
     dispatch({ type: MOVIE_ACTION_TYPES.MOVIE_SEARCH_SUCCESS, payload: data });
 }
 
-export const getMovieInfo = (id) => async (dispatch) => {
+export const getShortPlot = (id) => async (dispatch) => {
     const path = "https://www.omdbapi.com/?apikey=2ae73c8e&plot=short&i=" + id;
     const { data } = await axios.get(path);
-    dispatch({ type: MOVIE_ACTION_TYPES.RETRIEVE_MOVIE_PLOT, payload: data });
+    dispatch({ type: MOVIE_ACTION_TYPES.RETRIEVE_MOVIE_PLOT_SHORT, payload: data });
 }
 
 export const addNomination = (id) => async (dispatch, getState) => {

@@ -1,0 +1,42 @@
+#poster {
+    width: 150px;
+    height: 100%;
+  }
+  
+  .MuiGrid-grid-xs-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+    text-align: left;
+  }
+
+
+  #result-card {
+    background-color: #1D2B38;
+    color: rgb(233, 233, 233);
+  }
+
+ 
+  .x {
+      color: rgb(219, 219, 219);
+  }
+   .t {
+    justify-content: flex-end;
+    display: flex;
+  
+   }
+
+   .movie-action-buttons {
+
+    Button {
+        font-size: 12px;
+        border-radius: 15px;
+        background-color: #394550;
+        color: white;
+    }
+    Button:hover {
+        background-color: #333f47;
+    }
+    
+
+}

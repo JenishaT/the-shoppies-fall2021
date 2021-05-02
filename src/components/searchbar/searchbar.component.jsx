@@ -1,9 +1,6 @@
 import React from "react";
 import { Paper, InputBase, IconButton, Divider, Grid } from "@material-ui/core";
-import {
-    Search as SearchIcon,
-    Clear as ClearQueryIcon
-} from "@material-ui/icons";
+import { Search as SearchIcon, Clear as ClearQueryIcon } from "@material-ui/icons";
 
 import { searchMovies } from "../../redux/movie/movie.actions";
 import { connect } from "react-redux";
@@ -25,8 +22,10 @@ class SearchBar extends React.Component {
     searchSubmit = (e) => {
         e.preventDefault();
         const { query } = this.state;
-        this.props.searchMovies(query);
-        this.setState({ clearQueryVisible: true });
+        if (query) {
+            this.props.searchMovies(query);
+            this.setState({ clearQueryVisible: true });
+        }
     };
 
     clearQuery = (e) => {
@@ -36,38 +35,37 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-                <Grid container
-                    direction="row"
-                    justify="center"
-                    alignItems="center">
-                    <Grid container xs={11}>
-                        <Paper
-                            component="form"
-                            id="search-bar-container"
-                            variant="outlined"
-                            onSubmit={this.searchSubmit}
-                        >
-                            {this.state.clearQueryVisible ? (
-                                <IconButton onClick={this.clearQuery}>
-                                    <ClearQueryIcon />
-                                </IconButton>
-                            ) : null}
-                            <InputBase
-                                id="search"
-                                placeholder="Search For Movies"
-                                fullWidth
-                                required
-                                value={this.state.query}
-                                onChange={this.handleChange}
-                                name="query"
-                            />
-                            <Divider orientation="vertical" flexItem variant="middle" />
-                            <IconButton type="submit">
-                                <SearchIcon />
+            <Grid container
+                direction="row"
+                justify="center"
+                alignItems="center">
+                <Grid container xs={11}>
+                    <Paper
+                        component="form"
+                        id="search-bar-container"
+                        variant="outlined"
+                        onSubmit={this.searchSubmit}
+                    >
+                        {this.state.clearQueryVisible ? (
+                            <IconButton onClick={this.clearQuery}>
+                                <ClearQueryIcon />
                             </IconButton>
-                        </Paper>
-                    </Grid>
+                        ) : null}
+                        <InputBase
+                            id="search"
+                            placeholder="Search For Movies"
+                            fullWidth
+                            value={this.state.query}
+                            onChange={this.handleChange}
+                            name="query"
+                        />
+                        <Divider orientation="vertical" flexItem variant="middle" />
+                        <IconButton type="submit">
+                            <SearchIcon />
+                        </IconButton>
+                    </Paper>
                 </Grid>
+            </Grid>
         )
     }
 }

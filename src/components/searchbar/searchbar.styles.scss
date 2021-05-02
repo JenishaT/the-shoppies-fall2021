@@ -3,8 +3,8 @@
   width: 95%;
   display: flex;
   align-items: center;
-  background-color: #25364b;
-  border-color: #43515e;
+  background-color: #1D2B38;
+  border-color: #43515E;
 }
 
 #search {
@@ -16,7 +16,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus
 {
   -webkit-text-fill-color: white;
-  box-shadow: 0 0 0px 1000px #25364b inset;
+  box-shadow: 0 0 0px 1000px #1D2B38 inset;
   border: none;
 }
 
