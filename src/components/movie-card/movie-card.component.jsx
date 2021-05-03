@@ -2,13 +2,15 @@ import React from 'react';
 import Card from "@material-ui/core/Card";
 import { CardContent, Button, Grid } from "@material-ui/core";
 import { connect } from "react-redux";
-import { getShortPlot, addNomination } from "../../redux/movie/movie.actions";
+import { getShortPlot, addNomination, removeNomination } from "../../redux/movie/movie.actions";
 import './movie-card.styles.scss';
 
 class MovieCard extends React.Component {
     state = {
         movie: this.props.movie,
-        nominations: this.props.movieState.nominations
+        nominations: this.props.movieState.nominations,
+        showNominateButton: this.props.showNominateButton || false,
+        showRemoveButton: this.props.showRemoveButton || false
     }
 
     componentDidUpdate(prevProps) {
@@ -22,6 +24,10 @@ class MovieCard extends React.Component {
         this.props.addNomination(id);
     }
 
+    removeNomination(id) {
+        this.props.removeNomination(id);
+    }
+
     render() {
         const { movie } = this.state;
         return (
@@ -29,15 +35,15 @@ class MovieCard extends React.Component {
                 <Grid
                     container
                     direction="column"
-                    justify="center"
+                    justify="flex-start"
                     alignItems="center"
                     spacing={1}
                 >
                     <CardContent>
-                        <Grid container direction="row" spacing={1}>
+                        <Grid container direction="row" spacing={2}>
                             <Grid item>
                                 {movie.Poster ? (
-                                    <img id="poster" src={movie.Poster} alt={movie.Title}></img>
+                                    <img id="poster" src={movie.Poster} alt="Poster not available"></img>
                                 ) : null}
                             </Grid>
                             <Grid item xs={12} sm container>
@@ -45,21 +51,39 @@ class MovieCard extends React.Component {
                                     <Grid item>
                                         <b>{movie.Title}</b> ({movie.Year})
                                     </Grid>
-                                    <Grid item xs>
-                                        {movie.Plot}
+                                    <Grid item>
+                                        {this.state.showNominateButton ? movie.Plot : null}
+                                    </Grid>
+                                    <Grid item xs id="tags-container">
+                                        <Grid container spacing={1}>
+                                            {movie.Genre ? (movie.Genre.map((genre) => (
+                                                <Grid item key={genre}>
+                                                    <div className="tags">{genre}</div>
+                                                </Grid>
+                                            ))
+                                            ) : null}
+                                        </Grid>
                                     </Grid>
                                     <Grid item>
                                         <Grid className="movie-action-buttons" justify="flex-end" container spacing={1}>
-                                            <Grid item >
+                                            <Grid item>
                                                 <Button variant="outlined" >
                                                     More Info
                                                 </Button>
                                             </Grid>
 
-                                            <Grid item >
-                                                <Button variant="outlined" disabled={this.state.nominations && this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID)} onClick={this.nominateMovie.bind(this, movie.imdbID)}>
-                                                    Nominate
-                                                </Button>
+                                            <Grid item>
+                                                {this.state.showNominateButton ? (
+                                                    <Button variant="outlined" disabled={this.state.nominations && this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID)} onClick={this.nominateMovie.bind(this, movie.imdbID)}>
+                                                        Nominate
+                                                    </Button>
+                                                ) : null}
+
+                                                {this.state.showRemoveButton ? (
+                                                    <Button variant="outlined" onClick={this.removeNomination.bind(this, movie.imdbID)}>
+                                                        Remove
+                                                    </Button>
+                                                ) : null}
                                             </Grid>
                                         </Grid>
                                     </Grid>
@@ -79,7 +103,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     getShortPlot: (id) => dispatch(getShortPlot(id)),
-    addNomination: (id) => dispatch(addNomination(id))
+    addNomination: (id) => dispatch(addNomination(id)),
+    removeNomination: (id) => dispatch(removeNomination(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);

@@ -2,7 +2,7 @@ import React from "react";
 import { Paper, InputBase, IconButton, Divider, Grid } from "@material-ui/core";
 import { Search as SearchIcon, Clear as ClearQueryIcon } from "@material-ui/icons";
 
-import { searchMovies } from "../../redux/movie/movie.actions";
+import { clearSearch, searchMovies } from "../../redux/movie/movie.actions";
 import { connect } from "react-redux";
 
 import "./searchbar.styles.scss";
@@ -29,9 +29,13 @@ class SearchBar extends React.Component {
     };
 
     clearQuery = (e) => {
-        this.props.searchMovies("");
+        this.props.clearSearch();
         this.setState({ query: "", clearQueryVisible: false });
     };
+
+    componentDidMount() {
+        this.setState({ query: "", clearQueryVisible: false });
+    }
 
     render() {
         return (
@@ -39,7 +43,7 @@ class SearchBar extends React.Component {
                 direction="row"
                 justify="center"
                 alignItems="center">
-                <Grid container xs={11}>
+                <Grid container item xs={12}>
                     <Paper
                         component="form"
                         id="search-bar-container"
@@ -71,7 +75,8 @@ class SearchBar extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    searchMovies: (query) => dispatch(searchMovies(query))
+    searchMovies: (query) => dispatch(searchMovies(query)),
+    clearSearch : () => dispatch(clearSearch())
 });
 
 export default connect(null, mapDispatchToProps)(SearchBar);

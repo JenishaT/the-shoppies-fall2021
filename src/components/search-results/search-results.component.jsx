@@ -3,9 +3,8 @@ import { connect } from "react-redux";
 import "./search-results.styles.scss";
 import Card from "@material-ui/core/Card";
 import { Grid } from "@material-ui/core";
-import Typography from '@material-ui/core/Typography';
 
-import { getShortPlot, addNomination } from "../../redux/movie/movie.actions";
+import { getShortPlot, getGenres } from "../../redux/movie/movie.actions";
 import MovieCard from "../movie-card/movie-card.component";
 
 
@@ -18,6 +17,7 @@ class SearchResults extends React.Component {
         if (movies) {
             for (let i = 0; i < movies.length; i++) {
                 this.props.getShortPlot(movies[i].imdbID);
+                this.props.getGenres(movies[i].imdbID);
             }
         }
         this.setState({ movies: this.props.movie.movies })
@@ -30,12 +30,12 @@ class SearchResults extends React.Component {
             if (movies) {
                 for (let i = 0; i < movies.length; i++) {
                     this.props.getShortPlot(movies[i].imdbID);
+                    this.props.getGenres(movies[i].imdbID);
                 }
             }
             this.setState({ movies: this.props.movie.movies });
         }
     }
-
 
     render() {
         return (
@@ -52,14 +52,16 @@ class SearchResults extends React.Component {
                     </Grid>
                     <Grid item xs={12}>
                         <div id="result-card-container">
-                            <Grid container direction="column" justify="space-between" spacing={3}>
-                                {this.state.movies ? (this.state.movies.map((movie) => (
+                            {this.state.movies && this.state.movies.length > 0 ? (
+                                <Grid container direction="column" justify="space-between" spacing={3}> {this.state.movies.map((movie) => (
                                     <Grid item xs={12} key={movie.imdbID}>
-                                        <MovieCard movie={movie} />
+                                        <MovieCard movie={movie} showNominateButton={true} />
                                     </Grid>
-                                ))
-                                ) : null}
-                            </Grid>
+                                ))}
+                                </Grid>) :
+                                <Grid id="empty-search" container direction="column" justify="center" spacing={2}>
+                                    <Grid item> No Results found </Grid>
+                                </Grid>}
                         </div>
                     </Grid>
                 </Grid>
@@ -74,8 +76,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     getShortPlot: (id) => dispatch(getShortPlot(id)),
-    addNomination: (id) => dispatch(addNomination(id))
+    getGenres: (id) => dispatch(getGenres(id))
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);

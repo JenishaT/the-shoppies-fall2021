@@ -4,7 +4,12 @@ import axios from "axios";
 export const searchMovies = (query) => async (dispatch) => {
     const path = "https://www.omdbapi.com/?apikey=2ae73c8e&type=movie&s=" + query;
     const { data } = await axios.get(path);
-    dispatch({ type: MOVIE_ACTION_TYPES.MOVIE_SEARCH_SUCCESS, payload: data });
+
+    // Filtering search results due to API bug returning duplicates
+    const result = data.Search ?  data.Search.filter((value, index, self) => {
+        return self.findIndex(v => v.imdbID === value.imdbID) === index;
+      }) : [];
+    dispatch({ type: MOVIE_ACTION_TYPES.MOVIE_SEARCH_SUCCESS, payload: result });
 }
 
 export const getShortPlot = (id) => async (dispatch) => {
@@ -13,11 +18,18 @@ export const getShortPlot = (id) => async (dispatch) => {
     dispatch({ type: MOVIE_ACTION_TYPES.RETRIEVE_MOVIE_PLOT_SHORT, payload: data });
 }
 
+export const getGenres = (id) => async (dispatch) => {
+    const path = "https://www.omdbapi.com/?apikey=2ae73c8e&plot=short&i=" + id;
+    const { data } = await axios.get(path);
+    dispatch({ type: MOVIE_ACTION_TYPES.RETRIEVE_MOVIE_GENRES, payload: data })
+}
+
 export const addNomination = (id) => async (dispatch, getState) => {
     let nominations = getState().movie.nominations;
     if (!nominations.some(nomination => nomination.imdbID === id) || nominations.length === 0) {
         const path = "https://www.omdbapi.com/?apikey=2ae73c8e&plot=short&i=" + id;
         const { data } = await axios.get(path);
+        data.Genre = data.Genre.split(", ");
         nominations.push(data);
         dispatch({ type: MOVIE_ACTION_TYPES.ADD_NOMINATION_SUCCESS, payload: nominations });
     }
@@ -32,4 +44,8 @@ export const removeNomination = (id) => async (dispatch, getState) => {
 
 export const reset = () => async (dispatch) => {
     dispatch({ type: MOVIE_ACTION_TYPES.RESET_SUCCESS});
+}
+
+export const clearSearch = () => async (dispatch) => {
+    dispatch({ type: MOVIE_ACTION_TYPES.CLEAR_SEARCH_SUCCESS});
 }

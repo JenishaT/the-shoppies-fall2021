@@ -1,42 +1,48 @@
 #poster {
-    width: 150px;
-    height: 100%;
+  width: 130px;
+  height: 100%;
+}
+
+.MuiGrid-grid-xs-true {
+  flex-grow: 1;
+  max-width: 100%;
+  flex-basis: 0;
+  text-align: left;
+}
+
+.MuiCardContent-root {
+  width: 95%;
+}
+
+.tags {
+  font-size: 10px;
+  background-color: #2d4153;
+  color: #778ea3;
+  border: 1px solid #394550;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+#tags-container {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+#result-card {
+  background-color: #1d2b38;
+  color: rgb(233, 233, 233);
+  padding: 5px;
+}
+
+.movie-action-buttons {
+  padding-right: 10px;
+  Button {
+    font-size: 12px;
+    border-radius: 15px;
+    background-color: #394550;
+    color: white;
   }
-  
-  .MuiGrid-grid-xs-true {
-    flex-grow: 1;
-    max-width: 100%;
-    flex-basis: 0;
-    text-align: left;
+  Button:hover {
+    background-color: #333f47;
   }
-
-
-  #result-card {
-    background-color: #1D2B38;
-    color: rgb(233, 233, 233);
-  }
-
- 
-  .x {
-      color: rgb(219, 219, 219);
-  }
-   .t {
-    justify-content: flex-end;
-    display: flex;
-  
-   }
-
-   .movie-action-buttons {
-
-    Button {
-        font-size: 12px;
-        border-radius: 15px;
-        background-color: #394550;
-        color: white;
-    }
-    Button:hover {
-        background-color: #333f47;
-    }
-    
-
 }

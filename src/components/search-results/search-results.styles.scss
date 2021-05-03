@@ -7,27 +7,24 @@
     padding: 10px;
   }
 
-  margin-left: 7%;
-  margin-top: 2%;
-  width: 90%;
+  //margin-left: 9%;
+  //margin-top: 2%;
+  width: 98%;
   overflow-y: hidden;
   background-color: #2a3947;
 
-  /* width */
+  /* Scrollbar CSS */
   ::-webkit-scrollbar {
     width: 15px;
   }
   ::-webkit-scrollbar-track {
     background: #2a3947;
   }
-  /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #73828bad;
     border-radius: 10px;
     border: 3px solid #2a3947; 
   }
-
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #73828bc4;
   }
@@ -40,4 +37,11 @@
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #2a3947;
+}
+
+#empty-search {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  color: whitesmoke;
+  margin-top: 15%;
 }

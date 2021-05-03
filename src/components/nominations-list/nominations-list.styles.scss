@@ -1,0 +1,43 @@
+
+#nominations-container {
+    h2 {
+      font-family: Oranienbaum;
+      color: white;
+      text-align: left;
+      margin: 0;
+      padding: 10px;
+    }
+  
+    padding: 0;
+    width: 100%;
+    overflow-y: hidden;
+    background-color: #2a3947;
+  
+    /* Scrollbar CSS */
+    ::-webkit-scrollbar {
+      width: 15px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #2a3947;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #73828bad;
+      border-radius: 10px;
+      border: 3px solid #2a3947; 
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #73828bc4;
+    }
+  }
+
+  #empty-nominations {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 16px;
+      color: whitesmoke;
+      margin-top: 15%;
+  }
+  
+//   #test {
+//     padding-left: 6%;
+//     padding-right: 6%;
+// }

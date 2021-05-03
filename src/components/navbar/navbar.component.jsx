@@ -94,8 +94,6 @@ class NavBar extends React.Component {
             </AppBar >
         )
     }
-
-
 }
 
 export default NavBar;
