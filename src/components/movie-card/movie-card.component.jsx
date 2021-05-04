@@ -1,16 +1,17 @@
 import React from 'react';
 import Card from "@material-ui/core/Card";
-import { CardContent, Button, Grid } from "@material-ui/core";
+import InfoIcon from '@material-ui/icons/Info';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import { CardContent, Button, Grid, Hidden, IconButton } from "@material-ui/core";
 import { connect } from "react-redux";
-import { getShortPlot, addNomination, removeNomination } from "../../redux/movie/movie.actions";
+import { getShortPlot, addNomination } from "../../redux/movie/movie.actions";
+import defaultPoster from "../../assets/defaultPoster.jpg";
 import './movie-card.styles.scss';
 
 class MovieCard extends React.Component {
     state = {
         movie: this.props.movie,
-        nominations: this.props.movieState.nominations,
-        showNominateButton: this.props.showNominateButton || false,
-        showRemoveButton: this.props.showRemoveButton || false
+        nominations: this.props.movieState.nominations
     }
 
     componentDidUpdate(prevProps) {
@@ -24,8 +25,8 @@ class MovieCard extends React.Component {
         this.props.addNomination(id);
     }
 
-    removeNomination(id) {
-        this.props.removeNomination(id);
+    addDefaultSrc(ev) {
+        ev.target.src = defaultPoster;
     }
 
     render() {
@@ -43,10 +44,10 @@ class MovieCard extends React.Component {
                         <Grid container direction="row" spacing={2}>
                             <Grid item>
                                 {movie.Poster ? (
-                                    <img id="poster" src={movie.Poster} alt="Poster not available"></img>
+                                    <img id="poster" src={movie.Poster} alt="Poster not available" onError={this.addDefaultSrc}></img>
                                 ) : null}
                             </Grid>
-                            <Grid item xs={12} sm container>
+                            <Grid item xs sm container>
                                 <Grid item xs container direction="column" spacing={1}>
                                     <Grid item>
                                         <b>{movie.Title}</b> ({movie.Year})
@@ -67,23 +68,31 @@ class MovieCard extends React.Component {
                                     <Grid item>
                                         <Grid className="movie-action-buttons" justify="flex-end" container spacing={1}>
                                             <Grid item>
-                                                <Button variant="outlined" >
-                                                    More Info
-                                                </Button>
+                                                <Hidden xsDown>
+                                                    <Button variant="outlined" id="fullsize-button">
+                                                        More Info
+                                                    </Button>
+                                                </Hidden>
+                                                <Hidden smUp>
+                                                    <IconButton>
+                                                        <InfoIcon />
+                                                    </IconButton>
+                                                </Hidden>
                                             </Grid>
 
                                             <Grid item>
-                                                {this.state.showNominateButton ? (
-                                                    <Button variant="outlined" disabled={this.state.nominations && this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID)} onClick={this.nominateMovie.bind(this, movie.imdbID)}>
-                                                        Nominate
-                                                    </Button>
-                                                ) : null}
-
-                                                {this.state.showRemoveButton ? (
-                                                    <Button variant="outlined" onClick={this.removeNomination.bind(this, movie.imdbID)}>
-                                                        Remove
-                                                    </Button>
-                                                ) : null}
+                                                <div>
+                                                    <Hidden xsDown>
+                                                        <Button id="fullsize-button" variant="outlined" disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID)}>
+                                                            Nominate
+                                                            </Button>
+                                                    </Hidden>
+                                                    <Hidden smUp>
+                                                        <IconButton disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID)}>
+                                                            <AddCircleOutlineIcon />
+                                                        </IconButton>
+                                                    </Hidden>
+                                                </div>
                                             </Grid>
                                         </Grid>
                                     </Grid>
@@ -103,8 +112,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     getShortPlot: (id) => dispatch(getShortPlot(id)),
-    addNomination: (id) => dispatch(addNomination(id)),
-    removeNomination: (id) => dispatch(removeNomination(id))
+    addNomination: (id) => dispatch(addNomination(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);

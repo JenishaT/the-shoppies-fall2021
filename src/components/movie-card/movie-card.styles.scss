@@ -1,6 +1,7 @@
 #poster {
   width: 130px;
   height: 100%;
+  border-radius: 5px;
 }
 
 .MuiGrid-grid-xs-true {
@@ -36,11 +37,27 @@
 
 .movie-action-buttons {
   padding-right: 10px;
+
+  .MuiSvgIcon-root {
+    color: #556a81;
+    font-size: 30px;
+  }
+
+  .MuiIconButton-root.Mui-disabled {
+    .MuiSvgIcon-root {
+      color: #101c22;
+    }
+  }
+
   Button {
+    color: white;
+  }
+  
+  #fullsize-button {
     font-size: 12px;
     border-radius: 15px;
     background-color: #394550;
-    color: white;
+    
   }
   Button:hover {
     background-color: #333f47;
