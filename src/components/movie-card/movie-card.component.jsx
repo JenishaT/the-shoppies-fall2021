@@ -53,7 +53,7 @@ class MovieCard extends React.Component {
                                         <b>{movie.Title}</b> ({movie.Year})
                                     </Grid>
                                     <Grid item>
-                                        {this.state.showNominateButton ? movie.Plot : null}
+                                        {movie.Plot}
                                     </Grid>
                                     <Grid item xs id="tags-container">
                                         <Grid container spacing={1}>

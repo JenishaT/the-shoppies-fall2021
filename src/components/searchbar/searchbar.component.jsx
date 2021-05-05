@@ -16,14 +16,15 @@ class SearchBar extends React.Component {
     handleChange = (e) => {
         const { value, name } = e.target;
         this.setState({ [name]: value, clearQueryVisible: value !== "" });
-        this.props.searchMovies(value);
+        this.props.searchMovies(value, 1);
+        this.props.updateQuery(value);
     };
 
     searchSubmit = (e) => {
         e.preventDefault();
         const { query } = this.state;
         if (query) {
-            this.props.searchMovies(query);
+            this.props.searchMovies(query, 1);
             this.setState({ clearQueryVisible: true });
         }
     };
@@ -31,6 +32,7 @@ class SearchBar extends React.Component {
     clearQuery = (e) => {
         this.props.clearSearch();
         this.setState({ query: "", clearQueryVisible: false });
+        this.props.updateQuery("");
     };
 
     componentDidMount() {
@@ -75,7 +77,7 @@ class SearchBar extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    searchMovies: (query) => dispatch(searchMovies(query)),
+    searchMovies: (query, page) => dispatch(searchMovies(query, page)),
     clearSearch : () => dispatch(clearSearch())
 });
 

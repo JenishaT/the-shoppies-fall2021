@@ -1,15 +1,16 @@
 import MOVIE_ACTION_TYPES from "./movie.action.types";
 import axios from "axios";
 
-export const searchMovies = (query) => async (dispatch) => {
-    const path = "https://www.omdbapi.com/?apikey=2ae73c8e&type=movie&s=" + query;
+export const searchMovies = (query, page) => async (dispatch) => {
+    const path = "https://www.omdbapi.com/?apikey=2ae73c8e&type=movie&s=" + query + "&page=" + page;
     const { data } = await axios.get(path);
 
     // Filtering search results due to API bug returning duplicates
     const result = data.Search ?  data.Search.filter((value, index, self) => {
         return self.findIndex(v => v.imdbID === value.imdbID) === index;
       }) : [];
-    dispatch({ type: MOVIE_ACTION_TYPES.MOVIE_SEARCH_SUCCESS, payload: result });
+    const {totalResults} = data;
+    dispatch({ type: MOVIE_ACTION_TYPES.MOVIE_SEARCH_SUCCESS, payload: {result, totalResults, page}});
 }
 
 export const getShortPlot = (id) => async (dispatch) => {

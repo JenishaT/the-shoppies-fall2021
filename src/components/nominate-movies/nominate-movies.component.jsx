@@ -9,9 +9,17 @@ import { clearSearch } from "../../redux/movie/movie.actions";
 import { connect } from "react-redux";
 
 class NominateMovies extends React.Component {
+    state = {
+        query: ""
+    }
+
     componentDidMount() {
         this.props.clearSearch();
     }
+
+    onQueryUpdate(newQuery) {
+        this.setState({query: newQuery});
+    } 
     
     render() {
         return (
@@ -26,7 +34,7 @@ class NominateMovies extends React.Component {
                     <h1>Nominate Movies</h1>
                 </Grid>
                 <Grid item xs={12}>
-                    <SearchBar />
+                    <SearchBar updateQuery={this.onQueryUpdate.bind(this)}/>
                 </Grid>
 
                 <Grid item xs={12}>
@@ -34,17 +42,16 @@ class NominateMovies extends React.Component {
                         container
                         direction="row"
                         justify="center"
+                        spacing={1}
                     >
-                        <Grid container xs={7}>
-                            <SearchResults />
+                        <Grid item xs={12} md={7}>
+                            <SearchResults query={this.state.query}/>
                         </Grid>
-                        <Grid container xs={5}>
+                        <Grid item xs={12} md={5}>
                             <NominationsList />
                         </Grid>
-
                     </Grid>
                 </Grid>
-
             </Grid>
 
         )
