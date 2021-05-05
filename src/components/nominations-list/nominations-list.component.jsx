@@ -2,12 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import "./nominations-list.styles.scss";
 import Card from "@material-ui/core/Card";
-import { Grid, IconButton } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { addNomination, getShortPlot } from "../../redux/movie/movie.actions";
-import DeleteIcon from '@material-ui/icons/Delete';
-import InfoIcon from '@material-ui/icons/Info';
-import MovieCard from "../movie-card/movie-card.component";
-import Tooltip from '@material-ui/core/Tooltip';
 import NominationListCard from "../nomination-list-card/nomination-list-card.component";
 
 class NominationsList extends React.Component {

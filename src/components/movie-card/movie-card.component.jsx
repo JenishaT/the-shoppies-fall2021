@@ -2,10 +2,13 @@ import React from 'react';
 import Card from "@material-ui/core/Card";
 import InfoIcon from '@material-ui/icons/Info';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import CloseIcon from '@material-ui/icons/Close';
 import { CardContent, Button, Grid, Hidden, IconButton } from "@material-ui/core";
 import { connect } from "react-redux";
 import { getShortPlot, addNomination } from "../../redux/movie/movie.actions";
 import defaultPoster from "../../assets/defaultPoster.jpg";
+import { withSnackbar } from 'notistack';
+import Slide from '@material-ui/core/Slide';
 import './movie-card.styles.scss';
 
 class MovieCard extends React.Component {
@@ -14,6 +17,7 @@ class MovieCard extends React.Component {
         nominations: this.props.movieState.nominations
     }
 
+
     componentDidUpdate(prevProps) {
         const { movie } = this.props;
         if (movie.nominations !== prevProps.movie.nominations) {
@@ -21,8 +25,24 @@ class MovieCard extends React.Component {
         }
     }
 
-    nominateMovie(id) {
-        this.props.addNomination(id);
+    nominateMovie(id, title) {
+        const closeAlert = key => (
+            <IconButton onClick={() => { this.props.closeSnackbar(key)}} className="close-toast">
+                <CloseIcon />
+            </IconButton>
+        );
+        const message = 'Successfully nominated "' + title + '"';
+
+        this.props.addNomination(id).then(this.props.enqueueSnackbar(message, {
+            anchorOrigin: {
+                vertical: 'bottom',
+                horizontal: 'right',
+            },
+            autoHideDuration: 2000,
+            TransitionComponent: Slide,
+            variant: "success",
+            action: closeAlert
+        }));
     }
 
     addDefaultSrc(ev) {
@@ -83,12 +103,12 @@ class MovieCard extends React.Component {
                                             <Grid item>
                                                 <div>
                                                     <Hidden xsDown>
-                                                        <Button id="fullsize-button" variant="outlined" disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID)}>
+                                                        <Button id="fullsize-button" variant="outlined" disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID, movie.Title)}>
                                                             Nominate
                                                             </Button>
                                                     </Hidden>
                                                     <Hidden smUp>
-                                                        <IconButton disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID)}>
+                                                        <IconButton disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID, movie.title)}>
                                                             <AddCircleOutlineIcon />
                                                         </IconButton>
                                                     </Hidden>
@@ -115,4 +135,4 @@ const mapDispatchToProps = (dispatch) => ({
     addNomination: (id) => dispatch(addNomination(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);
+export default connect(mapStateToProps, mapDispatchToProps)(withSnackbar(MovieCard));
