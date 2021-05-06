@@ -40,12 +40,10 @@ const movieReducer = (prevState = INITIAL_STATE, action) => {
                 ...prevState,
                 nominations: action.payload
             }
-        case MOVIE_ACTION_TYPES.RESET_SUCCESS: {
+        case MOVIE_ACTION_TYPES.RESET_NOMINATION_SUCCESS: {
             return {
-                movies: null,
-                nominations: [],
-                totalResults: 0,
-                currentSearchPage: 1
+                ...prevState,
+                nominations: []
             }
         }
         case MOVIE_ACTION_TYPES.CLEAR_SEARCH_SUCCESS: {

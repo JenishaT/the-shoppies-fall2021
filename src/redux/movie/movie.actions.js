@@ -43,8 +43,8 @@ export const removeNomination = (id) => async (dispatch, getState) => {
     dispatch({ type: MOVIE_ACTION_TYPES.REMOVE_NOMINATION_SUCCESS, payload: nominations });
 }
 
-export const reset = () => async (dispatch) => {
-    dispatch({ type: MOVIE_ACTION_TYPES.RESET_SUCCESS});
+export const resetNominations = () => async (dispatch) => {
+    dispatch({ type: MOVIE_ACTION_TYPES.RESET_NOMINATION_SUCCESS});
 }
 
 export const clearSearch = () => async (dispatch) => {

@@ -14,14 +14,14 @@ import './movie-card.styles.scss';
 class MovieCard extends React.Component {
     state = {
         movie: this.props.movie,
-        nominations: this.props.movieState.nominations
+        nominations: this.props.movies.nominations
     }
 
 
     componentDidUpdate(prevProps) {
-        const { movie } = this.props;
-        if (movie.nominations !== prevProps.movie.nominations) {
-            this.setState({ nominations: this.props.movie.nominations });
+        const { movies } = this.props;
+        if (movies.nominations !== prevProps.movies.nominations) {
+            this.setState({ nominations: this.props.movies.nominations });
         }
     }
 
@@ -108,7 +108,7 @@ class MovieCard extends React.Component {
                                                             </Button>
                                                     </Hidden>
                                                     <Hidden smUp>
-                                                        <IconButton disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID, movie.title)}>
+                                                        <IconButton disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID, movie.Title)}>
                                                             <AddCircleOutlineIcon />
                                                         </IconButton>
                                                     </Hidden>
@@ -127,7 +127,7 @@ class MovieCard extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    movieState: state.movie
+    movies: state.movie
 });
 
 const mapDispatchToProps = (dispatch) => ({

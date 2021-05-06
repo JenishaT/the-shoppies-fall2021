@@ -25,8 +25,7 @@ ReactDOM.render(
         </SnackbarProvider>
       </ThemeProvider>
     </BrowserRouter>
-    </PersistGate>
-    
+    </PersistGate>   
   </Provider>,
   document.getElementById('root')
 );
