@@ -10,14 +10,9 @@ h1 {
     0 0 5px rgb(215, 224, 224);
 }
 
-#my-nomination-container {
-  padding: 0 2%;
-}
-
 #my-nomination-alert-container {
   width: 100%;
-  padding:0 7%;
-  text-align: left;
+  padding: 0 7%;
 
   .nomination-count-message {
     padding-top: 1%;
@@ -28,12 +23,10 @@ h1 {
   }
 
   .MuiAlert-standardSuccess {
-    color: rgb(245 250 245);
+    color: rgb(250, 249, 249);
     background-color: #395047;
     padding: 0 14px;
-    border-width: 1px;
-    border-color: green;
-    border-style: solid;
+    border: 1px solid green;
     margin-bottom: 1%;
 
     .MuiSvgIcon-fontSizeInherit {
@@ -56,9 +49,9 @@ h1 {
     padding-bottom: 4%;
   }
 }
- 
+
 @media (max-width: 599px) {
-    #nomination-card-wrapper {
-      padding: 5% 20%;
-    }
+  #nomination-card-wrapper {
+    padding: 5% 20%;
+  }
 }

@@ -1,12 +1,11 @@
 import React from 'react';
-import "./my-nominations.styles.scss";
-import { connect } from "react-redux";
-import { Grid,  Button } from "@material-ui/core";
-import { resetNominations } from "../../redux/movie/movie.actions";
+import { Grid, Button } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
+import { connect } from "react-redux";
+import { resetNominations } from "../../redux/movie/movie.actions";
 import MyNominationsCard from "../my-nominations-card/my-nominations-card.component";
 import NominationSubmissionDialog from "../nomination-submission-dialog/nomination-submission-dialog.component";
-
+import "./my-nominations.styles.scss";
 
 
 class MyNominations extends React.Component {
@@ -26,7 +25,7 @@ class MyNominations extends React.Component {
 
     closeSubmissionDialog = (openDialog) => {
         this.props.resetNominations();
-        this.setState({ completeNominations: openDialog, nominations: this.props.movie.nominations});
+        this.setState({ completeNominations: openDialog, nominations: this.props.movie.nominations });
     }
 
     componentDidUpdate(prevProps) {
@@ -39,10 +38,9 @@ class MyNominations extends React.Component {
     render() {
         return (
             <div>
-                <NominationSubmissionDialog isOpen={this.state.completeNominations} closeDialog={this.closeSubmissionDialog}/>
-            
+                <NominationSubmissionDialog isOpen={this.state.completeNominations} closeDialog={this.closeSubmissionDialog} />
+
                 <Grid container
-                    id="my-nominations-container"
                     direction="column"
                     justify="center"
                     alignItems="center"
@@ -65,7 +63,7 @@ class MyNominations extends React.Component {
                         </div>}
                     </Grid>
 
-                    <Grid item xs={12} id="my-nomination-container">
+                    <Grid item xs={12}>
                         <Grid container direction="row" alignItems="stretch" justify="center" spacing={1} >
                             {this.state.nominations && this.state.nominations.length > 0 ? (this.state.nominations.map((movie) => (
                                 <Grid item xs={12} sm={4} md lg key={movie.imdbID} id="nomination-card-wrapper">
