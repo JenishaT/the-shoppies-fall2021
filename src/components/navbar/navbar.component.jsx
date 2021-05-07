@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const navOptions = [
     { id: 0, label: 'Home', href: '/' },
     { id: 1, label: 'Nominate Movies', href: '/nominate-movies' },
-    { id: 2, label: 'My Nominations', href: '/nominations' }
+    { id: 2, label: 'My Nominations', href: '/my-nominations' }
 ];
 
 
@@ -51,7 +51,6 @@ class NavBar extends React.Component {
                             <Tabs className="navTabs"
                                 value={this.state.selectedNavOption}
                                 indicatorColor="secondary"
-                                textColor="white"
                                 onChange={this.handleChange}
                             >
                                 {navOptions.map(({ label, href }, index) => (

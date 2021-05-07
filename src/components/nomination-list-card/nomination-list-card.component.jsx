@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import "./nomination-list-card.styles.scss";
 import { Grid, IconButton, Card } from "@material-ui/core";
 import { removeNomination } from "../../redux/movie/movie.actions";
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import DeleteIcon from '@material-ui/icons/Delete';
-import InfoIcon from '@material-ui/icons/Info';
 import Tooltip from '@material-ui/core/Tooltip';
 
 class NominationListCard extends React.Component {
@@ -35,7 +35,7 @@ class NominationListCard extends React.Component {
                     <Grid item>
                         <Tooltip title="More info" placement="bottom" arrow>
                             <IconButton className="nomination-card-buttons">
-                                <InfoIcon />
+                                <OpenInNewIcon />
                             </IconButton>
                         </Tooltip>
                     </Grid>

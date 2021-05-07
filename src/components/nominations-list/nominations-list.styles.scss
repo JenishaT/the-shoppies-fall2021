@@ -54,32 +54,6 @@
   padding-bottom: 0px;
 }
 
-.MuiDialogContent-root {
-  font-family: sans-serif;
-  color: rgb(240, 240, 240);
-  background-color: #2a3947;
-
-  h3 {
-    font-family: Oranienbaum;
-    font-weight: lighter;
-    font-size: 25px;
-    margin: 0;
-    margin-bottom: 20px;
-  }
-
-  Button {
-    margin-bottom: 10px;
-    font-size: 12px;
-    border-radius: 10px;
-    background-color: #394550;
-    color: white;
-  }
-
-  Button:hover {
-    background-color: rgb(43, 53, 61);
-  }
-}
-
 #nomination-card-container {
   padding-left: 3%;
   padding-right: 3%;

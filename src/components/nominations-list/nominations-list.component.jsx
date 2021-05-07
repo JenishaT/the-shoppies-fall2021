@@ -5,9 +5,9 @@ import Card from "@material-ui/core/Card";
 import { Grid, Button } from "@material-ui/core";
 import { addNomination, getShortPlot, resetNominations } from "../../redux/movie/movie.actions";
 import NominationListCard from "../nomination-list-card/nomination-list-card.component";
-import Dialog from "@material-ui/core/Dialog";
-import DialogContent from "@material-ui/core/DialogContent";
 import { Alert } from "@material-ui/lab";
+
+import NominationSubmissionDialog from "../nomination-submission-dialog/nomination-submission-dialog.component";
 
 class NominationsList extends React.Component {
     state = {
@@ -19,9 +19,8 @@ class NominationsList extends React.Component {
         this.setState({ completeNominations: true })
     }
 
-    resetNominations = (e) => {
-        this.props.resetNominations();
-        this.setState({ completeNominations: false });
+    closeSubmissionDialog = (openDialog) => {
+        this.setState({ completeNominations: openDialog, nominations: this.props.movie.nominations});
     }
 
     componentDidUpdate(prevProps) {
@@ -34,31 +33,8 @@ class NominationsList extends React.Component {
     render() {
         return (
             <div>
-                <Dialog
-                    open={this.state.completeNominations}
-                    fullWidth={true}
-                    maxWidth="sm"
-                    style={{ backgroundColor: "transparent" }}
-                >
-                    <DialogContent>
-                        <h3>
-                            You have submitted your nominations! Below are your nominations:
-                        </h3>
-                        <Grid container direction="column">
-                            {this.state.nominations ? (this.state.nominations.map((movie) => (
-                                <Grid item xs={12}>
-                                    <b>{movie.Title}</b> ({movie.Year})
-                                </Grid>
-                            ))) : null
-                            }
-                        </Grid>
-                        <Grid justify="flex-end" container spacing={1}>
-                            <Button variant="outlined" onClick={this.resetNominations}>
-                                Nominate More Movies
-                            </Button>
-                        </Grid>
-                    </DialogContent>
-                </Dialog>
+                <NominationSubmissionDialog isOpen={this.state.completeNominations} closeDialog={this.closeSubmissionDialog}/>
+            
                 <Card id="nominations-container" >
                     <Grid
                         container

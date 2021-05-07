@@ -1,9 +1,9 @@
 import React from 'react';
 import Card from "@material-ui/core/Card";
-import InfoIcon from '@material-ui/icons/Info';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import CloseIcon from '@material-ui/icons/Close';
 import { CardContent, Button, Grid, Hidden, IconButton } from "@material-ui/core";
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { connect } from "react-redux";
 import { getShortPlot, addNomination } from "../../redux/movie/movie.actions";
 import defaultPoster from "../../assets/defaultPoster.jpg";
@@ -16,7 +16,6 @@ class MovieCard extends React.Component {
         movie: this.props.movie,
         nominations: this.props.movies.nominations
     }
-
 
     componentDidUpdate(prevProps) {
         const { movies } = this.props;
@@ -31,6 +30,7 @@ class MovieCard extends React.Component {
                 <CloseIcon />
             </IconButton>
         );
+
         const message = 'Successfully nominated "' + title + '"';
 
         this.props.addNomination(id).then(this.props.enqueueSnackbar(message, {
@@ -38,7 +38,7 @@ class MovieCard extends React.Component {
                 vertical: 'bottom',
                 horizontal: 'right',
             },
-            autoHideDuration: 2000,
+            autoHideDuration: 1000,
             TransitionComponent: Slide,
             variant: "success",
             action: closeAlert
@@ -89,13 +89,13 @@ class MovieCard extends React.Component {
                                         <Grid className="movie-action-buttons" justify="flex-end" container spacing={1}>
                                             <Grid item>
                                                 <Hidden xsDown>
-                                                    <Button variant="outlined" id="fullsize-button">
-                                                        More Info
+                                                    <Button variant="outlined" id="fullsize-button" onClick={() => window.open("https://www.imdb.com/title/"+ movie.imdbID +"/", "_blank")}>
+                                                        Info <OpenInNewIcon />
                                                     </Button>
                                                 </Hidden>
                                                 <Hidden smUp>
-                                                    <IconButton>
-                                                        <InfoIcon />
+                                                    <IconButton onClick={() => window.open("https://www.imdb.com/title/"+ movie.imdbID +"/", "_blank")}>
+                                                        <OpenInNewIcon />
                                                     </IconButton>
                                                 </Hidden>
                                             </Grid>
