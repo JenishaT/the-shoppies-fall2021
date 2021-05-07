@@ -1,12 +1,11 @@
 import React from 'react';
-import "./nominate-movies.styles.scss";
-
 import { Grid } from "@material-ui/core";
 import SearchBar from "../searchbar/searchbar.component";
 import SearchResults from "../search-results/search-results.component";
 import NominationsList from "../nominations-list/nominations-list.component";
-import { clearSearch } from "../../redux/movie/movie.actions";
 import { connect } from "react-redux";
+import { clearSearch } from "../../redux/movie/movie.actions";
+import "./nominate-movies.styles.scss";
 
 class NominateMovies extends React.Component {
     state = {
@@ -18,9 +17,9 @@ class NominateMovies extends React.Component {
     }
 
     onQueryUpdate(newQuery) {
-        this.setState({query: newQuery});
-    } 
-    
+        this.setState({ query: newQuery });
+    }
+
     render() {
         return (
             <Grid
@@ -29,14 +28,14 @@ class NominateMovies extends React.Component {
                 direction="column"
                 justify="center"
                 alignItems="stretch"
-                spacing={2}>
+                spacing={2}
+            >
                 <Grid item xs={12}>
                     <h1>Nominate Movies</h1>
                 </Grid>
                 <Grid item xs={12}>
-                    <SearchBar updateQuery={this.onQueryUpdate.bind(this)}/>
+                    <SearchBar updateQuery={this.onQueryUpdate.bind(this)} />
                 </Grid>
-
                 <Grid item xs={12}>
                     <Grid
                         container
@@ -45,7 +44,7 @@ class NominateMovies extends React.Component {
                         spacing={1}
                     >
                         <Grid item xs={12} md={7}>
-                            <SearchResults query={this.state.query}/>
+                            <SearchResults query={this.state.query} />
                         </Grid>
                         <Grid item xs={12} md={5}>
                             <NominationsList />
@@ -53,12 +52,12 @@ class NominateMovies extends React.Component {
                     </Grid>
                 </Grid>
             </Grid>
-
         )
     }
 }
+
 const mapDispatchToProps = (dispatch) => ({
-    clearSearch : () => dispatch(clearSearch())
+    clearSearch: () => dispatch(clearSearch())
 });
 
 export default connect(null, mapDispatchToProps)(NominateMovies);
