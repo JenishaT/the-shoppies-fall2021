@@ -1,18 +1,18 @@
+#result-card {
+  background-color: #1d2b38;
+  color: rgb(233, 233, 233);
+  padding: 5px;
+}
+
 #poster {
   width: 130px;
   height: 100%;
   border-radius: 5px;
 }
 
-.MuiGrid-grid-xs-true {
-  flex-grow: 1;
-  max-width: 100%;
-  flex-basis: 0;
-  text-align: left;
-}
-
-.MuiCardContent-root {
-  width: 95%;
+#tags-container {
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .tags {
@@ -22,17 +22,6 @@
   border: 1px solid #394550;
   border-radius: 8px;
   padding: 4px;
-}
-
-#tags-container {
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-
-#result-card {
-  background-color: #1d2b38;
-  color: rgb(233, 233, 233);
-  padding: 5px;
 }
 
 .movie-action-buttons {
@@ -52,8 +41,12 @@
   Button {
     color: white;
   }
-  
-  #fullsize-button {
+
+  Button:hover {
+    background-color: #2f3b42;
+  }
+
+  .fullsize-button {
     font-size: 12px;
     border-radius: 15px;
     background-color: #394550;
@@ -63,11 +56,18 @@
       font-size: 16px;
       margin-left: 6px;
     }
-    
   }
-  Button:hover {
-    background-color: #333f47;
-  }
+}
+
+.MuiGrid-grid-xs-true {
+  flex-grow: 1;
+  max-width: 100%;
+  flex-basis: 0;
+  text-align: left;
+}
+
+.MuiCardContent-root {
+  width: 95%;
 }
 
 .close-toast {

@@ -1,14 +1,12 @@
 import React from 'react';
-import Card from "@material-ui/core/Card";
+import { withSnackbar } from 'notistack';
+import { Card, CardContent, Button, Grid, Hidden, IconButton, Slide } from "@material-ui/core";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import CloseIcon from '@material-ui/icons/Close';
-import { CardContent, Button, Grid, Hidden, IconButton } from "@material-ui/core";
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import CloseIcon from '@material-ui/icons/Close';
 import { connect } from "react-redux";
 import { getShortPlot, addNomination } from "../../redux/movie/movie.actions";
 import defaultPoster from "../../assets/defaultPoster.jpg";
-import { withSnackbar } from 'notistack';
-import Slide from '@material-ui/core/Slide';
 import './movie-card.styles.scss';
 
 class MovieCard extends React.Component {
@@ -26,7 +24,7 @@ class MovieCard extends React.Component {
 
     nominateMovie(id, title) {
         const closeAlert = key => (
-            <IconButton onClick={() => { this.props.closeSnackbar(key)}} className="close-toast">
+            <IconButton onClick={() => { this.props.closeSnackbar(key) }} className="close-toast">
                 <CloseIcon />
             </IconButton>
         );
@@ -89,12 +87,12 @@ class MovieCard extends React.Component {
                                         <Grid className="movie-action-buttons" justify="flex-end" container spacing={1}>
                                             <Grid item>
                                                 <Hidden xsDown>
-                                                    <Button variant="outlined" id="fullsize-button" onClick={() => window.open("https://www.imdb.com/title/"+ movie.imdbID +"/", "_blank")}>
+                                                    <Button className="fullsize-button" variant="outlined" onClick={() => window.open("https://www.imdb.com/title/" + movie.imdbID + "/", "_blank")}>
                                                         Info <OpenInNewIcon />
                                                     </Button>
                                                 </Hidden>
                                                 <Hidden smUp>
-                                                    <IconButton onClick={() => window.open("https://www.imdb.com/title/"+ movie.imdbID +"/", "_blank")}>
+                                                    <IconButton onClick={() => window.open("https://www.imdb.com/title/" + movie.imdbID + "/", "_blank")}>
                                                         <OpenInNewIcon />
                                                     </IconButton>
                                                 </Hidden>
@@ -103,9 +101,9 @@ class MovieCard extends React.Component {
                                             <Grid item>
                                                 <div>
                                                     <Hidden xsDown>
-                                                        <Button id="fullsize-button" variant="outlined" disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID, movie.Title)}>
+                                                        <Button className="fullsize-button" variant="outlined" disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID, movie.Title)}>
                                                             Nominate
-                                                            </Button>
+                                                        </Button>
                                                     </Hidden>
                                                     <Hidden smUp>
                                                         <IconButton disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID, movie.Title)}>
