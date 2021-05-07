@@ -1,11 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
-import "./nomination-list-card.styles.scss";
-import { Grid, IconButton, Card } from "@material-ui/core";
-import { removeNomination } from "../../redux/movie/movie.actions";
+import { Grid, IconButton, Card, Tooltip } from "@material-ui/core";
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Tooltip from '@material-ui/core/Tooltip';
+import { connect } from "react-redux";
+import { removeNomination } from "../../redux/movie/movie.actions";
+import "./nomination-list-card.styles.scss";
 
 class NominationListCard extends React.Component {
     state = {
@@ -27,9 +26,8 @@ class NominationListCard extends React.Component {
                             {movie.Genre ? (movie.Genre.map((genre) => (
                                 <Grid item key={genre}>
                                     <div className="nomination-tags">{genre}</div>
-                                </Grid>
-                            ))
-                            ) : null}
+                                </Grid>)))
+                                : null}
                         </Grid>
                     </Grid>
                     <Grid item>
