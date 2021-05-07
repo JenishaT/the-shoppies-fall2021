@@ -1,10 +1,9 @@
 import React from "react";
 import { Paper, InputBase, IconButton, Divider, Grid } from "@material-ui/core";
-import { Search as SearchIcon, Clear as ClearQueryIcon } from "@material-ui/icons";
-
-import { clearSearch, searchMovies } from "../../redux/movie/movie.actions";
+import ClearQueryIcon from "@material-ui/icons/Clear";
+import SearchIcon from "@material-ui/icons/Search";
 import { connect } from "react-redux";
-
+import { clearSearch, searchMovies } from "../../redux/movie/movie.actions";
 import "./searchbar.styles.scss";
 
 class SearchBar extends React.Component {
@@ -78,7 +77,7 @@ class SearchBar extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
     searchMovies: (query, page) => dispatch(searchMovies(query, page)),
-    clearSearch : () => dispatch(clearSearch())
+    clearSearch: () => dispatch(clearSearch())
 });
 
 export default connect(null, mapDispatchToProps)(SearchBar);

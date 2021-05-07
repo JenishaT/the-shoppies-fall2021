@@ -1,17 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
-import "./search-results.styles.scss";
-import Card from "@material-ui/core/Card";
-import { Grid, IconButton } from "@material-ui/core";
-import { getShortPlot, getGenres, searchMovies } from "../../redux/movie/movie.actions";
-
+import { Grid, IconButton, Card } from "@material-ui/core";
 import FirstPageRoundedIcon from '@material-ui/icons/FirstPageRounded';
 import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@material-ui/icons/ChevronRightRounded';
 import LastPageRoundedIcon from '@material-ui/icons/LastPageRounded';
-
+import { connect } from "react-redux";
+import { getShortPlot, getGenres, searchMovies } from "../../redux/movie/movie.actions";
 import MovieCard from "../movie-card/movie-card.component";
-
+import "./search-results.styles.scss";
 
 class SearchResults extends React.Component {
     state = {
@@ -20,6 +16,7 @@ class SearchResults extends React.Component {
         currentPage: this.props.movie.currentSearchPage,
         totalPages: this.props.movie.totalSearchPages
     }
+
     componentDidMount() {
         let { movies } = this.state;
         if (movies) {
@@ -74,6 +71,7 @@ class SearchResults extends React.Component {
         this.props.searchMovies(this.props.query, this.props.movie.totalSearchPages);
         this.setState({ currentPage: this.props.movie.totalSearchPages });
     }
+    
     render() {
         return (
             <Card id="result-container" >

@@ -14,7 +14,6 @@
   overflow-y: hidden;
   background-color: #2a3947;
 
-  /* Scrollbar CSS */
   ::-webkit-scrollbar {
     width: 15px;
   }
@@ -50,13 +49,19 @@
   }
 }
 
+.nomination-count {
+  color: whitesmoke;
+  float: right;
+  margin: 0;
+  padding: 10px;
+}
+
 #alert-container {
   padding-bottom: 0px;
 }
 
 #nomination-card-container {
-  padding-left: 3%;
-  padding-right: 3%;
+  padding: 0 3%;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #2a3947;
@@ -76,11 +81,4 @@
   font-size: 16px;
   color: whitesmoke;
   margin-top: 15%;
-}
-
-.nomination-count {
-  color: whitesmoke;
-  float: right;
-  margin: 0;
-  padding: 10px;
 }

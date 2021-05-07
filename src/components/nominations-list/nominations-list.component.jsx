@@ -1,13 +1,11 @@
 import React from "react";
+import { Grid, Button, Card } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 import { connect } from "react-redux";
-import "./nominations-list.styles.scss";
-import Card from "@material-ui/core/Card";
-import { Grid, Button } from "@material-ui/core";
 import { addNomination, getShortPlot, resetNominations } from "../../redux/movie/movie.actions";
 import NominationListCard from "../nomination-list-card/nomination-list-card.component";
-import { Alert } from "@material-ui/lab";
-
 import NominationSubmissionDialog from "../nomination-submission-dialog/nomination-submission-dialog.component";
+import "./nominations-list.styles.scss";
 
 class NominationsList extends React.Component {
     state = {
@@ -20,7 +18,7 @@ class NominationsList extends React.Component {
     }
 
     closeSubmissionDialog = (openDialog) => {
-        this.setState({ completeNominations: openDialog, nominations: this.props.movie.nominations});
+        this.setState({ completeNominations: openDialog, nominations: this.props.movie.nominations });
     }
 
     componentDidUpdate(prevProps) {
@@ -33,8 +31,8 @@ class NominationsList extends React.Component {
     render() {
         return (
             <div>
-                <NominationSubmissionDialog isOpen={this.state.completeNominations} closeDialog={this.closeSubmissionDialog}/>
-            
+                <NominationSubmissionDialog isOpen={this.state.completeNominations} closeDialog={this.closeSubmissionDialog} />
+
                 <Card id="nominations-container" >
                     <Grid
                         container
@@ -78,7 +76,6 @@ class NominationsList extends React.Component {
                     </Grid>
                 </Card >
             </div>
-
         )
     }
 }
