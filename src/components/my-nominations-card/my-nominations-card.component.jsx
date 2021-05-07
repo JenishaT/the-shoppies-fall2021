@@ -1,13 +1,11 @@
 import React from 'react';
-import "./my-nominations-card.styles.scss";
-import { connect } from "react-redux";
-import defaultPoster from "../../assets/defaultPoster.jpg";
-import { Grid, IconButton, Card } from "@material-ui/core";
-import { removeNomination } from "../../redux/movie/movie.actions";
+import { Grid, IconButton, Card, Tooltip } from "@material-ui/core";
 import DeleteIcon from '@material-ui/icons/Delete';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
-import Tooltip from '@material-ui/core/Tooltip';
-
+import { connect } from "react-redux";
+import { removeNomination } from "../../redux/movie/movie.actions";
+import defaultPoster from "../../assets/defaultPoster.jpg";
+import "./my-nominations-card.styles.scss";
 
 class MyNominationCard extends React.Component {
     state = {
@@ -25,18 +23,18 @@ class MyNominationCard extends React.Component {
     render() {
         const { movie } = this.state;
         return (
-            <Card id="nomination-card" key={movie.imbdID}>
+            <Card id="nomination-card" key={movie.imdbID}>
                 <Grid container direction="column" justify="center" alignItems="stretch">
                     <Grid item xs={12}>
                         {movie.Poster ? (
                             <img id="nomination-poster" src={movie.Poster} alt="Poster not available" onError={this.addDefaultSrc}></img>
                         ) : null}
                     </Grid>
-                    <Grid xs={12} item className="movie-title">
+                    <Grid xs={12} item className="nomination-movie-title">
                         <b>{movie.Title}</b> ({movie.Year})
                     </Grid>
                 </Grid>
-                <div className="buttons">
+                <div>
                     <Tooltip title="More info" placement="bottom" arrow>
                         <IconButton className="nomination-card-buttons">
                             <OpenInNewIcon />
