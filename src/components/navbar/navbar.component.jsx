@@ -1,16 +1,14 @@
 import React from 'react';
-import "./navbar.styles.scss";
-import MenuIcon from "@material-ui/icons/Menu";
 import { AppBar, Grid, Tabs, Tab, Hidden, Menu, IconButton, MenuItem } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
-
+import "./navbar.styles.scss";
 
 const navOptions = [
     { id: 0, label: 'Home', href: '/' },
     { id: 1, label: 'Nominate Movies', href: '/nominate-movies' },
     { id: 2, label: 'My Nominations', href: '/my-nominations' }
 ];
-
 
 class NavBar extends React.Component {
     state = {
@@ -75,7 +73,6 @@ class NavBar extends React.Component {
                             >
                                 {navOptions.map(({ label, href }, index) => (
                                     <MenuItem
-                                        id="nav-menu"
                                         key={index}
                                         onClick={this.handleClose}
                                         selected={href === window.location.pathname}
@@ -85,10 +82,8 @@ class NavBar extends React.Component {
                                     </MenuItem>
                                 ))}
                             </Menu>
-
                         </Hidden>
                     </Grid>
-
                 </Grid>
             </AppBar >
         )
