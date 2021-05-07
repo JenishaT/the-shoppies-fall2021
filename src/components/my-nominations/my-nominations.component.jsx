@@ -66,7 +66,7 @@ class MyNominations extends React.Component {
                     <Grid item xs={12}>
                         <Grid container direction="row" alignItems="stretch" justify="center" spacing={1} >
                             {this.state.nominations && this.state.nominations.length > 0 ? (this.state.nominations.map((movie) => (
-                                <Grid item xs={12} sm={4} md lg key={movie.imdbID} id="nomination-card-wrapper">
+                                <Grid item xs={7} sm={4} md lg key={movie.imdbID} id="nomination-card-wrapper">
                                     <MyNominationsCard movie={movie} />
                                 </Grid>
                             ))) : null}

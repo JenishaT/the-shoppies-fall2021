@@ -1,10 +1,12 @@
+@use '../../colours.scss';
+
 #nomination-card {
   padding: 10px;
   height: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  background-color: #1d2b38;
+  background-color: colours.$card-background;
   color: aliceblue;
 }
 

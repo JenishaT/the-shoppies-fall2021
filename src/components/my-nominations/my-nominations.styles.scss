@@ -1,5 +1,7 @@
+@use '../../colours.scss';
+
 h1 {
-  color: rgb(255, 255, 255);
+  color: white;
   padding: 0;
   font-size: 45px;
   margin-bottom: 5px;
@@ -23,10 +25,10 @@ h1 {
   }
 
   .MuiAlert-standardSuccess {
-    color: rgb(250, 249, 249);
-    background-color: #395047;
+    color: colours.$alert-text;
+    background-color: colours.$alert-background;
     padding: 0 14px;
-    border: 1px solid green;
+    border: 1px solid colours.$alert-border;
     margin-bottom: 1%;
 
     .MuiSvgIcon-fontSizeInherit {
@@ -45,13 +47,12 @@ h1 {
 
 @media (max-width: 960px) {
   #nomination-card-wrapper {
-    padding: 0 2%;
     padding-bottom: 4%;
   }
 }
 
 @media (max-width: 599px) {
   #nomination-card-wrapper {
-    padding: 5% 20%;
+    padding: 5% 0;
   }
 }

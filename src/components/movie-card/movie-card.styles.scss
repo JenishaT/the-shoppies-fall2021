@@ -1,6 +1,8 @@
+@use '../../colours.scss';
+
 #result-card {
-  background-color: #1d2b38;
-  color: rgb(233, 233, 233);
+  background-color: colours.$card-background;
+  color: colours.$card-text;
   padding: 5px;
 }
 
@@ -17,9 +19,9 @@
 
 .tags {
   font-size: 10px;
-  background-color: #2d4153;
-  color: #778ea3;
-  border: 1px solid #394550;
+  background-color: colours.$tag-fill;
+  color: colours.$tag-text;
+  border: 1px solid colours.$tag-border;
   border-radius: 8px;
   padding: 4px;
 }
@@ -28,13 +30,13 @@
   padding-right: 10px;
 
   .MuiSvgIcon-root {
-    color: #556a81;
+    color: colours.$movie-icon;
     font-size: 30px;
   }
 
   .MuiIconButton-root.Mui-disabled {
     .MuiSvgIcon-root {
-      color: #101c22;
+      color: colours.$movie-icon-disabled;
     }
   }
 
@@ -43,13 +45,13 @@
   }
 
   Button:hover {
-    background-color: #2f3b42;
+    background-color: colours.$button-hover;
   }
 
   .fullsize-button {
     font-size: 12px;
     border-radius: 15px;
-    background-color: #394550;
+    background-color: colours.$button;
 
     .MuiSvgIcon-root {
       color: rgb(230, 230, 230);

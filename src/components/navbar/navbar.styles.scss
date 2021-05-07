@@ -1,5 +1,7 @@
+@use '../../colours.scss';
+
 .navbar {
-  color: rgb(245, 248, 252);
+  color: colours.$navbar-text;
   font-family: Oranienbaum;
   font-size: 40px;
   padding: 5px;
@@ -7,7 +9,7 @@
 
   a {
     text-decoration: none;
-    color: rgb(245, 248, 252);
+    color: colours.$navbar-text;
     font-style: normal;
   }
 }

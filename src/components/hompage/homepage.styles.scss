@@ -1,3 +1,5 @@
+@use '../../colours.scss';
+
 .curtain {
   width: 100%;
   height: 90vh;
@@ -26,7 +28,6 @@
 
   100% {
     transform: translateX(-80%);
-    //opacity: 0.2;
   }
 }
 
@@ -37,7 +38,6 @@
 
   100% {
     transform: translateX(80%);
-    //opacity: 0.2;
   }
 }
 
@@ -50,8 +50,8 @@
 }
 
 .curtain-content {
-  background-color: #151e2a;
-  color: rgb(255, 255, 255);
+  background-color: colours.$background;
+  color: #ffffff;
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -91,6 +91,6 @@
     width: 300px;
   }
   Button:hover {
-    background-color: #333f47;
+    background-color: colours.$button-hover;
   }
 }
