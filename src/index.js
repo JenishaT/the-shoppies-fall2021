@@ -4,10 +4,8 @@ import { Provider } from "react-redux";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core/styles";
-import store, {persistor} from "./redux/store.js";
-import { SnackbarProvider } from 'notistack';
+import store, { persistor } from "./redux/store.js";
 import { PersistGate } from "redux-persist/integration/react";
 
 import theme from "./theme"
@@ -16,16 +14,10 @@ import theme from "./theme"
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <SnackbarProvider maxSnack={3}>
-          <React.StrictMode>
-            <App />
-          </React.StrictMode>
-        </SnackbarProvider>
+        <App />
       </ThemeProvider>
-    </BrowserRouter>
-    </PersistGate>   
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );
