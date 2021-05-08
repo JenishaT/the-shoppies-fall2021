@@ -15,6 +15,7 @@ class NominationsList extends React.Component {
     }
 
     submitNominations = (e) => {
+        this.props.submitNominations();
         this.setState({ completeNominations: true })
     }
 

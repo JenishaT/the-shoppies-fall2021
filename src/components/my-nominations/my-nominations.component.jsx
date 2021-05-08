@@ -16,18 +16,18 @@ class MyNominations extends React.Component {
     }
 
     submitNominations = (e) => {
+        this.props.submitNominations();
         this.setState({ completeNominations: true })
     }
 
     closeSubmissionDialog = (openDialog) => {
-        this.props.submitNominations();
         this.setState({ completeNominations: openDialog, nominations: this.props.movie.nominations });
     }
 
     componentDidUpdate(prevProps) {
         const { movie } = this.props;
-        if (movie.nominations !== prevProps.movie.nominations) {
-            this.setState({ nominations: this.props.movie.nominations });
+        if (movie.nominations !== prevProps.movie.nominations || movie.submitted !== prevProps.movie.submitted) {
+            this.setState({ nominations: this.props.movie.nominations, submitted: this.props.movie.submitted });
         }
     }
 
@@ -53,11 +53,12 @@ class MyNominations extends React.Component {
                                 </Button>
                             }>
                                 You have added 5 nominations to your list
-                            </Alert> : null} 
+                            </Alert> :
                             <div className="nomination-count-message">
-                               { this.state.submitted ? "You have successfully nominated the following movies:" : 
-                               "You have nominated" + this.state.nominations.length + "/5 movies. Go to Nominate Movies to nominate more movies"} 
-                            </div>
+                                {this.state.submitted ? "You have successfully nominated the following movies:" :
+                                    "You have nominated " + this.state.nominations.length + "/5 movies. Go to Nominate Movies to nominate more movies"}
+                            </div>}
+
                     </Grid>
 
                     <Grid item xs={12}>

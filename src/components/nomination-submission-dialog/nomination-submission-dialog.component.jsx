@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid, Button, Dialog, DialogContent } from "@material-ui/core";
 import { connect } from "react-redux";
-import { submitNominations } from "../../redux/movie/movie.actions";
 import "./nomination-submission-dialog.styles.scss";
 
 class NominationSubmissionDialog extends React.Component {
@@ -9,8 +8,7 @@ class NominationSubmissionDialog extends React.Component {
         nominations: this.props.movie.nominations
     }
 
-    submitNominations = (e) => {
-        this.props.submitNominations();
+    closeSubmissionDialog = (e) => {
         this.props.closeDialog(false);
     }
 
@@ -34,7 +32,7 @@ class NominationSubmissionDialog extends React.Component {
                         </Grid>
                         <Grid item xs={12}>
                             <Grid justify="flex-end" container spacing={1}>
-                                <Button variant="outlined" onClick={this.submitNominations}>
+                                <Button variant="outlined" onClick={this.closeSubmissionDialog}>
                                     Ok
                                     </Button>
                             </Grid>
@@ -50,8 +48,4 @@ const mapStateToProps = (state) => ({
     movie: state.movie
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    submitNominations: () => dispatch(submitNominations())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(NominationSubmissionDialog);
+export default connect(mapStateToProps, null)(NominationSubmissionDialog);
