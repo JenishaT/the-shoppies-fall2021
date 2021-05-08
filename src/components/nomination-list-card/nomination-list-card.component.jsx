@@ -32,7 +32,7 @@ class NominationListCard extends React.Component {
                     </Grid>
                     <Grid item>
                         <Tooltip title="More info" placement="bottom" arrow>
-                            <IconButton className="nomination-card-buttons">
+                            <IconButton className="nomination-card-buttons" onClick={() => window.open("https://www.imdb.com/title/" + movie.imdbID + "/", "_blank")}>
                                 <OpenInNewIcon />
                             </IconButton>
                         </Tooltip>

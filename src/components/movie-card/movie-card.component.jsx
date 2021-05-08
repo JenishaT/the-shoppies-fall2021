@@ -63,7 +63,7 @@ class MovieCard extends React.Component {
                             <Grid item>
                                 {movie.Poster ? (
                                     <img id="poster" src={movie.Poster} alt="Poster not available" onError={this.addDefaultSrc}></img>
-                                ) : null}
+                                ) : <img id="poster" src={defaultPoster} alt="Poster not available"></img>}
                             </Grid>
                             <Grid item xs sm container>
                                 <Grid item xs container direction="column" spacing={1}>

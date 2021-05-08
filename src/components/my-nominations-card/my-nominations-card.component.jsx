@@ -28,7 +28,7 @@ class MyNominationCard extends React.Component {
                     <Grid item xs={12}>
                         {movie.Poster ? (
                             <img id="nomination-poster" src={movie.Poster} alt="Poster not available" onError={this.addDefaultSrc}></img>
-                        ) : null}
+                        ) : <img id="nomination-poster" src={defaultPoster} alt="Poster not available"></img>}
                     </Grid>
                     <Grid xs={12} item className="nomination-movie-title">
                         <b>{movie.Title}</b> ({movie.Year})
@@ -36,7 +36,7 @@ class MyNominationCard extends React.Component {
                 </Grid>
                 <div>
                     <Tooltip title="More info" placement="bottom" arrow>
-                        <IconButton className="nomination-card-buttons">
+                        <IconButton className="nomination-card-buttons" onClick={() => window.open("https://www.imdb.com/title/" + movie.imdbID + "/", "_blank")}>
                             <OpenInNewIcon />
                         </IconButton>
                     </Tooltip>
