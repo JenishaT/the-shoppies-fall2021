@@ -7,6 +7,7 @@ The project is deployed at: https://the-shoppies-jenisha.herokuapp.com
 # Usage Notes
 
 ## Home Page
+![Home Page](/docs/images/homepage.JPG?raw=true "Home Page")
 On the "Home" page, users can click on the "Nominate Movies" button to navigate to the "Nominate Movies" page 
 
 ## Nominate Movies Page
