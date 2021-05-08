@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Button } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import { connect } from "react-redux";
-import { resetNominations } from "../../redux/movie/movie.actions";
+import { submitNominations } from "../../redux/movie/movie.actions";
 import MyNominationsCard from "../my-nominations-card/my-nominations-card.component";
 import NominationSubmissionDialog from "../nomination-submission-dialog/nomination-submission-dialog.component";
 import "./my-nominations.styles.scss";
@@ -11,20 +11,16 @@ import "./my-nominations.styles.scss";
 class MyNominations extends React.Component {
     state = {
         nominations: this.props.movie.nominations,
-        completeNominations: false
+        completeNominations: false,
+        submitted: this.props.movie.submitted
     }
 
     submitNominations = (e) => {
         this.setState({ completeNominations: true })
     }
 
-    resetNominations = (e) => {
-        this.props.resetNominations();
-        this.setState({ completeNominations: false });
-    }
-
     closeSubmissionDialog = (openDialog) => {
-        this.props.resetNominations();
+        this.props.submitNominations();
         this.setState({ completeNominations: openDialog, nominations: this.props.movie.nominations });
     }
 
@@ -50,17 +46,18 @@ class MyNominations extends React.Component {
                         <h1>My Nominations</h1>
                     </Grid>
                     <Grid item xs={12} id="my-nomination-alert-container">
-                        {this.state.nominations && this.state.nominations.length === 5 ?
+                        {this.state.nominations && this.state.nominations.length === 5 && !this.state.submitted ?
                             <Alert severity="success" action={
                                 <Button color="inherit" size="small" onClick={this.submitNominations}>
                                     Submit
                                 </Button>
                             }>
                                 You have added 5 nominations to your list
-                            </Alert> :
+                            </Alert> : null} 
                             <div className="nomination-count-message">
-                                You have nominated {this.state.nominations.length}/5 movies. Go to "Nominate Movies" to nominate more movies
-                        </div>}
+                               { this.state.submitted ? "You have successfully nominated the following movies:" : 
+                               "You have nominated" + this.state.nominations.length + "/5 movies. Go to Nominate Movies to nominate more movies"} 
+                            </div>
                     </Grid>
 
                     <Grid item xs={12}>
@@ -83,7 +80,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    resetNominations: () => dispatch(resetNominations())
+    submitNominations: () => dispatch(submitNominations())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyNominations);

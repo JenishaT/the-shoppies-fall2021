@@ -47,6 +47,24 @@
       padding: 12px 0;
     }
   }
+
+  .MuiAlert-standardInfo {
+    color: rgb(245 250 245);
+    background-color: #344a5f;
+    padding: 0 14px;
+    border: 1px solid #2e577c;
+    font-size: 14px;
+    margin-left: 3%;
+    margin-right: 6%;
+
+    .MuiSvgIcon-fontSizeInherit {
+      margin: 20% 0;
+    }
+
+    .MuiAlert-message {
+      padding: 12px 0;
+    }
+  }
 }
 
 .nomination-count {

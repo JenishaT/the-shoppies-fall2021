@@ -40,19 +40,25 @@ class MyNominationCard extends React.Component {
                             <OpenInNewIcon />
                         </IconButton>
                     </Tooltip>
-                    <Tooltip title="Remove Nomination" placement="bottom" arrow>
-                        <IconButton className="nomination-card-buttons" onClick={this.removeNomination.bind(this, movie.imdbID)}>
-                            <DeleteIcon />
-                        </IconButton>
-                    </Tooltip>
+                    {!this.props.movies.submitted ? (
+                        <Tooltip title="Remove Nomination" placement="bottom" arrow>
+                            <IconButton className="nomination-card-buttons" onClick={this.removeNomination.bind(this, movie.imdbID)}>
+                                <DeleteIcon />
+                            </IconButton>
+                        </Tooltip>)
+                        : null}
                 </div>
             </Card>
         )
     }
 }
 
+const mapStateToProps = (state) => ({
+    movies: state.movie
+});
+
 const mapDispatchToProps = (dispatch) => ({
     removeNomination: (id) => dispatch(removeNomination(id))
 });
 
-export default connect(null, mapDispatchToProps)(MyNominationCard);
+export default connect(mapStateToProps, mapDispatchToProps)(MyNominationCard);

@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Button, Dialog, DialogContent } from "@material-ui/core";
 import { connect } from "react-redux";
-import { resetNominations } from "../../redux/movie/movie.actions";
+import { submitNominations } from "../../redux/movie/movie.actions";
 import "./nomination-submission-dialog.styles.scss";
 
 class NominationSubmissionDialog extends React.Component {
@@ -9,8 +9,8 @@ class NominationSubmissionDialog extends React.Component {
         nominations: this.props.movie.nominations
     }
 
-    resetNominations = (e) => {
-        this.props.resetNominations();
+    submitNominations = (e) => {
+        this.props.submitNominations();
         this.props.closeDialog(false);
     }
 
@@ -30,9 +30,12 @@ class NominationSubmissionDialog extends React.Component {
                             </Grid>)))
                             : null}
                         <Grid item xs={12}>
+                           <br/> You can continue to use the site to search for movies
+                        </Grid>
+                        <Grid item xs={12}>
                             <Grid justify="flex-end" container spacing={1}>
-                                <Button variant="outlined" onClick={this.resetNominations}>
-                                    Nominate Again
+                                <Button variant="outlined" onClick={this.submitNominations}>
+                                    Ok
                                     </Button>
                             </Grid>
                         </Grid>
@@ -48,7 +51,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    resetNominations: () => dispatch(resetNominations())
+    submitNominations: () => dispatch(submitNominations())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NominationSubmissionDialog);

@@ -2,6 +2,7 @@ import MOVIE_ACTION_TYPES from "./movie.action.types";
 const INITIAL_STATE = {
     movies: null,
     nominations: [],
+    submitted: false,
     totalResults: 0,
     currentSearchPage: 1,
     totalSearchPages: 0
@@ -40,10 +41,10 @@ const movieReducer = (prevState = INITIAL_STATE, action) => {
                 ...prevState,
                 nominations: action.payload
             }
-        case MOVIE_ACTION_TYPES.RESET_NOMINATION_SUCCESS: {
+        case MOVIE_ACTION_TYPES.SUBMIT_NOMINATION_SUCCESS: {
             return {
                 ...prevState,
-                nominations: []
+                submitted: true
             }
         }
         case MOVIE_ACTION_TYPES.CLEAR_SEARCH_SUCCESS: {

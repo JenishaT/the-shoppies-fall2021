@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Button, Card } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import { connect } from "react-redux";
-import { addNomination, getShortPlot, resetNominations } from "../../redux/movie/movie.actions";
+import { addNomination, getShortPlot, submitNominations } from "../../redux/movie/movie.actions";
 import NominationListCard from "../nomination-list-card/nomination-list-card.component";
 import NominationSubmissionDialog from "../nomination-submission-dialog/nomination-submission-dialog.component";
 import "./nominations-list.styles.scss";
@@ -10,7 +10,8 @@ import "./nominations-list.styles.scss";
 class NominationsList extends React.Component {
     state = {
         nominations: this.props.movie.nominations,
-        completeNominations: false
+        completeNominations: false,
+        submitted: this.props.movie.submitted
     }
 
     submitNominations = (e) => {
@@ -18,13 +19,13 @@ class NominationsList extends React.Component {
     }
 
     closeSubmissionDialog = (openDialog) => {
-        this.setState({ completeNominations: openDialog, nominations: this.props.movie.nominations });
+        this.setState({ completeNominations: openDialog, nominations: this.props.movie.nominations, submitted: this.props.movie.submitted });
     }
 
     componentDidUpdate(prevProps) {
         const { movie } = this.props;
-        if (movie.nominations !== prevProps.movie.nominations) {
-            this.setState({ nominations: this.props.movie.nominations });
+        if (movie.nominations !== prevProps.movie.nominations || movie.submitted !== prevProps.movie.submitted) {
+            this.setState({ nominations: this.props.movie.nominations, submitted: this.props.movie.submitted });
         }
     }
 
@@ -46,7 +47,7 @@ class NominationsList extends React.Component {
                             <h3 className="nomination-count">({this.state.nominations.length}/5)</h3>
                         </Grid>
                         <Grid item xs={12} id="alert-container">
-                            {this.state.nominations && this.state.nominations.length === 5 ?
+                            {this.state.nominations && this.state.nominations.length === 5 && !this.state.submitted ?
                                 <Alert severity="success" action={
                                     <Button color="inherit" size="small" onClick={this.submitNominations}>
                                         Submit
@@ -54,6 +55,8 @@ class NominationsList extends React.Component {
                                 }>
                                     You have added 5 nominations to your list
                             </Alert> : null}
+
+                            {this.state.submitted ? <Alert severity="info"> You have successfully nominated the following movies: </Alert> : null}
                         </Grid>
                         <Grid item xs={12}>
                             <div id="nomination-card-container">
@@ -87,7 +90,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     getShortPlot: (id) => dispatch(getShortPlot(id)),
     addNomination: (id) => dispatch(addNomination(id)),
-    resetNominations: () => dispatch(resetNominations())
+    submitNominations: () => dispatch(submitNominations())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NominationsList);

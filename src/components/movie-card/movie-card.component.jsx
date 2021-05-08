@@ -17,7 +17,7 @@ class MovieCard extends React.Component {
 
     componentDidUpdate(prevProps) {
         const { movies } = this.props;
-        if (movies.nominations !== prevProps.movies.nominations) {
+        if (movies.nominations !== prevProps.movies.nominations || movies.submitted !== prevProps.movies.submitted) {
             this.setState({ nominations: this.props.movies.nominations });
         }
     }
@@ -99,18 +99,20 @@ class MovieCard extends React.Component {
                                             </Grid>
 
                                             <Grid item>
-                                                <div>
-                                                    <Hidden xsDown>
-                                                        <Button className="fullsize-button" variant="outlined" disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID, movie.Title)}>
-                                                            Nominate
+                                                {!this.props.movies.submitted ? (
+                                                    <div>
+                                                        <Hidden xsDown>
+                                                            <Button className="fullsize-button" variant="outlined" disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID, movie.Title)}>
+                                                                Nominate
                                                         </Button>
-                                                    </Hidden>
-                                                    <Hidden smUp>
-                                                        <IconButton disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID, movie.Title)}>
-                                                            <AddCircleOutlineIcon />
-                                                        </IconButton>
-                                                    </Hidden>
-                                                </div>
+                                                        </Hidden>
+                                                        <Hidden smUp>
+                                                            <IconButton disabled={this.state.nominations && (this.state.nominations.some(nomination => nomination.imdbID === movie.imdbID) || this.state.nominations.length === 5)} onClick={this.nominateMovie.bind(this, movie.imdbID, movie.Title)}>
+                                                                <AddCircleOutlineIcon />
+                                                            </IconButton>
+                                                        </Hidden>
+                                                    </div>)
+                                                    : null}
                                             </Grid>
                                         </Grid>
                                     </Grid>
