@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# UX Developer Intern & Web Developer Intern Challenge - Fall 2021
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### The Shoppies: Movie awards for entrepreneurs
 
-## Available Scripts
+The project is deployed at: https://the-shoppies-jenisha.herokuapp.com
 
-In the project directory, you can run:
+# Usage Notes
 
-### `npm start`
+## Home Page
+On the "Home" page, users can click on the "Nominate Movies" button to navigate to the "Nominate Movies" page 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Nominate Movies Page
+On the "Nominate Movies" page, users can search for movies by title and add movies as nominees by pressing the "Nominate" button. Users can also view the IMDB page for the movie by clicking the "Info" button. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Once a user has nominated 5 movies, an alert will pop up notifying them to submit their nominations. The alert contains a "Submit" button, which they will use to submit their nominations. The user will be able to modify their nominations as long as they haven't submitted their nominations
 
-### `npm test`
+Users can remove a nomination by clicking the delete icon on the corresponding nominee in the nominations list. They can also view the IMDB pages of these movies by clicking on the info icon.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Once user clicks 'Submit', a pop-up will be displayed with an overview of their nominations
 
-### `npm run build`
+After the pop-up is closed (by clicking OK), the nomination list can't be editted. However the user can still utilize the site to search for movies and view their IMDB pages. Their nomination list will be saved and they can view them from both the "Nominate Movies" and "My Nominations" pages.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## My Nominations Page
+On the "My Nominations" page, users can view their current nominations lists. If the user has less than 5 nominations in their list, a message is display with the current nomination count. To add more nominations, the user has to navigate to the "Nominate Movies" page. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If the user has 5 nominations, an alert similar to "Nominate Movies" is displayed. If the user clicks "Submit", then the nomination summary dialog is outputted. Once the dialog is closed, the user can't edit their nominations. They will still be able to view the IMDB pages using the link icons for the nominees.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If the user has not yet submitted their nominations, they can remove nominations from their list, by clicking the delete icon for the nominee.
 
-### `npm run eject`
+# Built using:
+* React
+* Redux
+* Material-UI
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Extra Features
+* Users nomination lists are saved when the user navigates away from the page
+  * Implemented using localStorage and redux-persist
+* Toast messages when succesfully nominating a movie 
+* Homepage curtain animation implemented through CSS 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
