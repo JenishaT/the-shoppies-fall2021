@@ -36,7 +36,7 @@ class MovieCard extends React.Component {
                 vertical: 'bottom',
                 horizontal: 'right',
             },
-            autoHideDuration: 1000,
+            autoHideDuration: 1500,
             TransitionComponent: Slide,
             variant: "success",
             action: closeAlert
