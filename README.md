@@ -70,6 +70,7 @@ The project is deployed at: https://the-shoppies-jenisha.herokuapp.com
     <img src="/docs/images/homepageMobile.JPG" alt="Home Page on Mobile" width="255" height="455"/>
     <img src="/docs/images/nominateMoviesMobile.JPG" alt="Nominate Movies Page on Mobile" width="255" height="455"/>
     <img src="/docs/images/myNominationsMobile.JPG" alt="My Nominations Page on Mobile" width="255" height="455"/>
+   </li>
    <li> <b>Toast message notifications </b> when succesfully nominating a movie </li>
    <li> Homepage curtain <b>animation</b>
 </ul>
