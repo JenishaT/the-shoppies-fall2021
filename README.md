@@ -2,14 +2,14 @@
 
 Submission for <a href="https://docs.google.com/document/d/1SdR9rQpocsH5rPTOcxr9noqHRld5NJlylKO9Hf94U8U/edit#heading=h.31w9woubunro"> UX Developer Intern & Web Developer Intern Challenge - Fall 2021 </a>
 
-The project is deployed at: https://the-shoppies-jenisha.herokuapp.com
+The project is deployed at: https://jenishat.github.io/the-shoppies-fall2021/
 
 <h1> Built using: </h1>
 <ul>
  <li><b>React</b> and <b>Material UI</b> for the frontend development</li>
  <li><b>Redux</b> for state management</li>
  <li><b>Express</b> for deployment </b> </li>
- <li><b>Heruko</b> for hosting </li>
+ <li><b>GitHub Pages</b> for hosting </li>
 </ul>
 
 <h1> Usage Notes </h1>
