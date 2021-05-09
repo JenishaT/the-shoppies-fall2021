@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/the-shoppies-fall2021/static/css/main.000ee191.chunk.css",
-    "main.js": "/the-shoppies-fall2021/static/js/main.3b2b20b6.chunk.js",
-    "main.js.map": "/the-shoppies-fall2021/static/js/main.3b2b20b6.chunk.js.map",
-    "runtime-main.js": "/the-shoppies-fall2021/static/js/runtime-main.97c8fa9c.js",
-    "runtime-main.js.map": "/the-shoppies-fall2021/static/js/runtime-main.97c8fa9c.js.map",
-    "static/js/2.9dbac982.chunk.js": "/the-shoppies-fall2021/static/js/2.9dbac982.chunk.js",
-    "static/js/2.9dbac982.chunk.js.map": "/the-shoppies-fall2021/static/js/2.9dbac982.chunk.js.map",
-    "static/js/3.790275c1.chunk.js": "/the-shoppies-fall2021/static/js/3.790275c1.chunk.js",
-    "static/js/3.790275c1.chunk.js.map": "/the-shoppies-fall2021/static/js/3.790275c1.chunk.js.map",
-    "index.html": "/the-shoppies-fall2021/index.html",
-    "static/css/main.000ee191.chunk.css.map": "/the-shoppies-fall2021/static/css/main.000ee191.chunk.css.map",
-    "static/js/2.9dbac982.chunk.js.LICENSE.txt": "/the-shoppies-fall2021/static/js/2.9dbac982.chunk.js.LICENSE.txt",
-    "static/media/homepage.styles.scss": "/the-shoppies-fall2021/static/media/curtain.912162da.jpg",
-    "static/media/defaultPoster.497fa354.jpg": "/the-shoppies-fall2021/static/media/defaultPoster.497fa354.jpg"
+    "main.css": "/static/css/main.7ebd131f.chunk.css",
+    "main.js": "/static/js/main.3b2b20b6.chunk.js",
+    "main.js.map": "/static/js/main.3b2b20b6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7a68e885.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7a68e885.js.map",
+    "static/js/2.9dbac982.chunk.js": "/static/js/2.9dbac982.chunk.js",
+    "static/js/2.9dbac982.chunk.js.map": "/static/js/2.9dbac982.chunk.js.map",
+    "static/js/3.790275c1.chunk.js": "/static/js/3.790275c1.chunk.js",
+    "static/js/3.790275c1.chunk.js.map": "/static/js/3.790275c1.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.7ebd131f.chunk.css.map": "/static/css/main.7ebd131f.chunk.css.map",
+    "static/js/2.9dbac982.chunk.js.LICENSE.txt": "/static/js/2.9dbac982.chunk.js.LICENSE.txt",
+    "static/media/homepage.styles.scss": "/static/media/curtain.912162da.jpg",
+    "static/media/defaultPoster.497fa354.jpg": "/static/media/defaultPoster.497fa354.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.97c8fa9c.js",
+    "static/js/runtime-main.7a68e885.js",
     "static/js/2.9dbac982.chunk.js",
-    "static/css/main.000ee191.chunk.css",
+    "static/css/main.7ebd131f.chunk.css",
     "static/js/main.3b2b20b6.chunk.js"
   ]
 }
