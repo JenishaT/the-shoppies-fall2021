@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/JenishaThomasSite/static/css/main.df083267.chunk.css",
-    "main.js": "/JenishaThomasSite/static/js/main.3b2b20b6.chunk.js",
-    "main.js.map": "/JenishaThomasSite/static/js/main.3b2b20b6.chunk.js.map",
-    "runtime-main.js": "/JenishaThomasSite/static/js/runtime-main.8f66e2ef.js",
-    "runtime-main.js.map": "/JenishaThomasSite/static/js/runtime-main.8f66e2ef.js.map",
-    "static/js/2.9dbac982.chunk.js": "/JenishaThomasSite/static/js/2.9dbac982.chunk.js",
-    "static/js/2.9dbac982.chunk.js.map": "/JenishaThomasSite/static/js/2.9dbac982.chunk.js.map",
-    "static/js/3.790275c1.chunk.js": "/JenishaThomasSite/static/js/3.790275c1.chunk.js",
-    "static/js/3.790275c1.chunk.js.map": "/JenishaThomasSite/static/js/3.790275c1.chunk.js.map",
-    "index.html": "/JenishaThomasSite/index.html",
-    "static/css/main.df083267.chunk.css.map": "/JenishaThomasSite/static/css/main.df083267.chunk.css.map",
-    "static/js/2.9dbac982.chunk.js.LICENSE.txt": "/JenishaThomasSite/static/js/2.9dbac982.chunk.js.LICENSE.txt",
-    "static/media/homepage.styles.scss": "/JenishaThomasSite/static/media/curtain.912162da.jpg",
-    "static/media/defaultPoster.497fa354.jpg": "/JenishaThomasSite/static/media/defaultPoster.497fa354.jpg"
+    "main.css": "/the-shoppies-fall2021/static/css/main.000ee191.chunk.css",
+    "main.js": "/the-shoppies-fall2021/static/js/main.3b2b20b6.chunk.js",
+    "main.js.map": "/the-shoppies-fall2021/static/js/main.3b2b20b6.chunk.js.map",
+    "runtime-main.js": "/the-shoppies-fall2021/static/js/runtime-main.97c8fa9c.js",
+    "runtime-main.js.map": "/the-shoppies-fall2021/static/js/runtime-main.97c8fa9c.js.map",
+    "static/js/2.9dbac982.chunk.js": "/the-shoppies-fall2021/static/js/2.9dbac982.chunk.js",
+    "static/js/2.9dbac982.chunk.js.map": "/the-shoppies-fall2021/static/js/2.9dbac982.chunk.js.map",
+    "static/js/3.790275c1.chunk.js": "/the-shoppies-fall2021/static/js/3.790275c1.chunk.js",
+    "static/js/3.790275c1.chunk.js.map": "/the-shoppies-fall2021/static/js/3.790275c1.chunk.js.map",
+    "index.html": "/the-shoppies-fall2021/index.html",
+    "static/css/main.000ee191.chunk.css.map": "/the-shoppies-fall2021/static/css/main.000ee191.chunk.css.map",
+    "static/js/2.9dbac982.chunk.js.LICENSE.txt": "/the-shoppies-fall2021/static/js/2.9dbac982.chunk.js.LICENSE.txt",
+    "static/media/homepage.styles.scss": "/the-shoppies-fall2021/static/media/curtain.912162da.jpg",
+    "static/media/defaultPoster.497fa354.jpg": "/the-shoppies-fall2021/static/media/defaultPoster.497fa354.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8f66e2ef.js",
+    "static/js/runtime-main.97c8fa9c.js",
     "static/js/2.9dbac982.chunk.js",
-    "static/css/main.df083267.chunk.css",
+    "static/css/main.000ee191.chunk.css",
     "static/js/main.3b2b20b6.chunk.js"
   ]
 }
