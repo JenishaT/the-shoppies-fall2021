@@ -56,7 +56,7 @@ class MyNominations extends React.Component {
                             </Alert> :
                             <div className="nomination-count-message">
                                 {this.state.submitted ? "You have successfully nominated the following movies:" :
-                                    "You have nominated " + this.state.nominations.length + "/5 movies. Go to Nominate Movies to nominate more movies"}
+                                    "You have nominated " + this.state.nominations.length + '/5 movies. Go to the "Nominate Movies" page to nominate more movies'}
                             </div>}
 
                     </Grid>

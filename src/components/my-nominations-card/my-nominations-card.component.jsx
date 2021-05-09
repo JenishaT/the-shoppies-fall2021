@@ -1,7 +1,9 @@
 import React from 'react';
-import { Grid, IconButton, Card, Tooltip } from "@material-ui/core";
+import { withSnackbar } from 'notistack';
+import { Grid, IconButton, Card, Tooltip, Slide } from "@material-ui/core";
 import DeleteIcon from '@material-ui/icons/Delete';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import CloseIcon from '@material-ui/icons/Close';
 import { connect } from "react-redux";
 import { removeNomination } from "../../redux/movie/movie.actions";
 import defaultPoster from "../../assets/defaultPoster.jpg";
@@ -16,9 +18,27 @@ class MyNominationCard extends React.Component {
         ev.target.src = defaultPoster;
     }
 
-    removeNomination(id) {
-        this.props.removeNomination(id);
+    removeNomination(id, title) {
+        const closeAlert = key => (
+            <IconButton onClick={() => { this.props.closeSnackbar(key) }} className="close-toast">
+                <CloseIcon />
+            </IconButton>
+        );
+
+        const message = 'Removed "' + title + '" from nominations';
+
+        this.props.removeNomination(id).then(this.props.enqueueSnackbar(message, {
+            anchorOrigin: {
+                vertical: 'bottom',
+                horizontal: 'right',
+            },
+            autoHideDuration: 1500,
+            TransitionComponent: Slide,
+            variant: "error",
+            action: closeAlert
+        }));
     }
+
 
     render() {
         const { movie } = this.state;
@@ -42,7 +62,7 @@ class MyNominationCard extends React.Component {
                     </Tooltip>
                     {!this.props.movies.submitted ? (
                         <Tooltip title="Remove Nomination" placement="bottom" arrow>
-                            <IconButton className="nomination-card-buttons" onClick={this.removeNomination.bind(this, movie.imdbID)}>
+                            <IconButton className="nomination-card-buttons" onClick={this.removeNomination.bind(this, movie.imdbID, movie.Title)}>
                                 <DeleteIcon />
                             </IconButton>
                         </Tooltip>)
@@ -61,4 +81,4 @@ const mapDispatchToProps = (dispatch) => ({
     removeNomination: (id) => dispatch(removeNomination(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyNominationCard);
+export default connect(mapStateToProps, mapDispatchToProps)(withSnackbar(MyNominationCard));
