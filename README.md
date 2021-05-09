@@ -62,16 +62,17 @@ The project is deployed at: https://the-shoppies-jenisha.herokuapp.com
 
 <h1> Extra Features </h1>
 <ul> 
- <li><b>Nomination lists are saved</b> when the user navigates away from the page</li>
+  <li><b>Nomination lists are saved</b> when the user navigates away from the page</li>
       <ul>
        <li>This is achieved through the use of <code>localStorage</code> and a persistant store created using <code>redux-persist</code> </li>
       </ul>
-   <li> <b>Fully Responsive </b>, supporting up to a minimum width of 375px (the typical width of an iPhone X): <br/>
+  <li> Searching is <b>paginated</b></li>
+  <li> <b>Fully Responsive </b>, supporting up to a minimum width of 375px (the typical width of an iPhone X): <br/>
     <img src="/docs/images/homepageMobile.JPG" alt="Home Page on Mobile" width="255" height="455"/>
     <img src="/docs/images/nominateMoviesMobile.JPG" alt="Nominate Movies Page on Mobile" width="255" height="455"/>
     <img src="/docs/images/myNominationsMobile.JPG" alt="My Nominations Page on Mobile" width="255" height="455"/>
-   </li>
-   <li> <b>Toast message notifications </b> when succesfully nominating a movie </li>
-   <li> Homepage curtain <b>animation</b>
+  </li>
+  <li> <b>Toast message notifications </b> when succesfully nominating a movie </li>
+  <li> Homepage curtain <b>animation</b>
 </ul>
  
