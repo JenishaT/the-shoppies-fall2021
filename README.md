@@ -4,6 +4,14 @@ Submission for <a href="https://docs.google.com/document/d/1SdR9rQpocsH5rPTOcxr9
 
 The project is deployed at: https://the-shoppies-jenisha.herokuapp.com
 
+<h1> Built using: </h1>
+<ul>
+ <li><b>React</b> and <b>Material UI</b> for the frontend development</li>
+ <li><b>Redux</b> for state management</li>
+ <li><b>Express</b> for deployment </b> </li>
+ <li><b>Heruko</b> for hosting </li>
+</ul>
+
 <h1> Usage Notes </h1>
 
 <h2> Home Page </h2>
@@ -51,14 +59,6 @@ The project is deployed at: https://the-shoppies-jenisha.herokuapp.com
 <img src="/docs/images/myNominationsSubmitted.JPG" alt="My Nominations Page submitted nominations">
 
 > Once the dialog is closed, the user can't edit their nominations. They will still be able to view the IMDB pages using the link icons for the nominees.
-
-<h1> Built using: </h1>
-<ul>
- <li><b>React</b> and <b>Material UI</b> for the frontend development</li>
- <li><b>Redux</b> for state management</li>
- <li><b>Express</b> for deployment </b> </li>
- <li><b>Heruko</b> for hosting </li>
-</ul>
 
 <h1> Extra Features </h1>
 <ul> 
